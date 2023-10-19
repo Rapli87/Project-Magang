@@ -95,6 +95,8 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::get('admin/upcoming-match/create', [UpcomingMatchController::class, 'create'])->name('upcoming-match.create');
 
     Route::get('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'edit'])->name('upcoming-match.edit');
+    
+    Route::put('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'update'])->name('upcoming-match.update');
 
     Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
 

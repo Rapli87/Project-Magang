@@ -44,8 +44,10 @@
                             <!-- end card header--> --}}
 
                             <div class="card-body">
-                                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
-                                    <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary" style="margin-bottom: 10px;">
+                                <table id="fixed-columns-datatable"
+                                    class="table table-striped nowrap row-border order-column w-100">
+                                    <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary"
+                                        style="margin-bottom: 10px;">
                                         <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                     </a>
                                     <thead>
@@ -63,28 +65,49 @@
                                     </thead>
 
                                     <tbody>
+                                        @forelse ($items as $item)
+
                                         <tr>
-                                            <td>1</td>
-                                            <td>SMA NU 1 GRESIK</td>
-                                            <td>SMK YASMU MANYAR</td>
-                                            <td>Rabu, 23 Agustus 2023 19:00 WIB</td>
-                                            <td>Stadion Gelora Joko Samudro</td>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->home_team }}</td>
+                                            <td>{{ $item->away_team }}</td>
+                                            <td>{{ $item->match_datetime }}</td>
+                                            <td>{{ $item->vanue }}</td>
                                             <td>
-                                                <img src="{{ url('frontend/images/upcoming/LogoSekolah/SMA NU 1 GRESIK.jpg') }}" alt="" width="100px">
+                                                <img src="{{ url ('storage/' .$item->home_team_logo) }}" alt=""
+                                                    style="width: 150px; height: 150px; object-fit: cover;"
+                                                    >
                                             </td>
                                             <td>
-                                                <img src="{{ url('frontend/images/upcoming/LogoSekolah/SMK YASMU MANYAR.png') }}" alt="" width="100px">
+                                                <img src="{{ url ('storage/' .$item->away_team_logo) }}" alt=""
+                                                    style="width: 150px; height: 150px; object-fit: cover;"
+                                                    >
                                             </td>
-                                            <td>hbksbcsckbkbvdvkd</td>
+                                            <td>{{ $item->description }}</td>
                                             <td>
-                                                <a href="" class="btn btn-warning">
+                                                <a href="{{ route('upcoming-match.edit', $item->id) }}"
+                                                    class="btn btn-info">
                                                     <i class="ri-pencil-line text-light"></i>
                                                 </a>
-                                                <a href="" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-line text-light"></i>
-                                                </a>
+                                                <form action="{{ route('upcoming-match.destroy', $item->id) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger">
+                                                        <i class="ri-delete-bin-line text-light"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
+
+                                        @empty
+                                        
+                                        <tr>
+                                            <td colspan="9" class="text-center">
+                                                Data Kosong
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div> <!-- end card body-->

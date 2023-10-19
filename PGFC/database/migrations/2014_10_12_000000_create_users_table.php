@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('is_verified')->default(0);
             $table->string('password');
             $table->string('referral_code')->nullable();
-            $table->softDeletes();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
