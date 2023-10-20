@@ -43,40 +43,75 @@
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('upcoming-match.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('upcoming-match.update', $item->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="home_team" class="form-label">Home</label>
-                                        <input type="text" class="form-control" name="home_team" placeholder="Home"
-                                            value="{{ $item->home_team }}">
+                                        <input type="text" class="form-control @error('home_team') is-invalid @enderror"
+                                            name="home_team" placeholder="Home" value="{{ $item->home_team }}">
+                                        @error('home_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="away_team" class="form-label">Away</label>
-                                        <input type="text" class = "form-control" name="away_team" placeholder="Away"
-                                            value="{{ $item->away_team }}">
+                                        <input type="text" class="form-control @error('away_team') is-invalid @enderror"
+                                            name="away_team" placeholder="Away" value="{{ $item->away_team }}">
+                                        @error('away_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    {{-- vanue --}}
                                     <div class="mb-3">
-                                        <label for="vanue" class="form-label">Vanue</label>
-                                        <input type="text" class="form-control" name="vanue" placeholder="Vanue"
-                                            value="{{ $item->vanue }}">
+                                        <label for="vanue" class="form-label">Venue</label>
+                                        <input type="text" class="form-control @error('vanue') is-invalid @enderror"
+                                            name="vanue" placeholder="Venue" value="{{ $item->vanue }}">
+                                        @error('vanue')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="match_datetime" class="form-label">Match Date Time</label>
-                                        <input type="datetime-local" class="form-control" name="match_datetime"
-                                            value="{{ $item->match_datetime }}">
+                                        <input type="datetime-local"
+                                            class="form-control @error('match_datetime') is-invalid @enderror"
+                                            name="match_datetime" placeholder="Date" value="{{ $item->match_datetime }}">
+                                        @error('match_datetime')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="home_team_logo" class="form-label">Logo Home</label>
-                                        <input type="file" class="form-control" name="home_team_logo">
+                                        <input type="file"
+                                            class="form-control @error('home_team_logo') is-invalid @enderror"
+                                            name="home_team_logo">
                                     </div>
+                                    @error('home_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="mb-3">
-                                        <label for="away_team_logo" class="form-label">Logo Away</label>
-                                        <input type="file" class="form-control" name="away_team_logo">
+                                        <label for="away_team_logo" class="form-label">Logo Home</label>
+                                        <input type="file"
+                                            class="form-control @error('away_team_logo') is-invalid @enderror"
+                                            name="away_team_logo">
                                     </div>
+                                    @error('away_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea class="form-control" name="description" placeholder="Description">{{ $item->description }}</textarea>

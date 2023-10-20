@@ -49,32 +49,62 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="home_team" class="form-label">Home</label>
-                                        <input type="text" class="form-control" name="home_team" placeholder="Home"
-                                            value="{{ old('home_team') }}">
+                                        <input type="text" class="form-control @error('home_team') is-invalid @enderror"
+                                            name="home_team" placeholder="Home" value="{{ old('home_team') }}">
+                                        @error('home_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="away_team" class="form-label">Away</label>
-                                        <input type="text" class = "form-control" name="away_team" placeholder="Away"
-                                            value="{{ old('away_team') }}">
+                                        <input type="text" class="form-control @error('away_team') is-invalid @enderror"
+                                            name="away_team" placeholder="Away" value="{{ old('away_team') }}">
+                                        @error('away_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="vanue" class="form-label">Vanue</label>
-                                        <input type="text" class="form-control" name="vanue" placeholder="Vanue"
-                                            value="{{ old('vanue') }}">
+                                        <label for="vanue" class="form-label">Venue</label>
+                                        <input type="text" class="form-control @error('vanue') is-invalid @enderror"
+                                            name="vanue" placeholder="Venue" value="{{ old('vanue') }}">
+                                        @error('vanue')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="match_datetime" class="form-label">Match Date Time</label>
-                                        <input type="datetime-local" class="form-control" name="match_datetime"
-                                            value="{{ old('match_datetime') }}">
+                                        <input type="datetime-local" class="form-control @error('match_datetime') is-invalid @enderror"
+                                            name="match_datetime" placeholder="Date" value="{{ old('match_datetime') }}">
+                                        @error('match_datetime')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="home_team_logo" class="form-label">Logo Home</label>
-                                        <input type="file" class="form-control" name="home_team_logo">
+                                        <input type="file" class="form-control @error('home_team_logo') is-invalid @enderror" name="home_team_logo">
                                     </div>
+                                    @error('home_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="mb-3">
-                                        <label for="away_team_logo" class="form-label">Logo Away</label>
-                                        <input type="file" class="form-control" name="away_team_logo">
+                                        <label for="away_team_logo" class="form-label">Logo Home</label>
+                                        <input type="file" class="form-control @error('away_team_logo') is-invalid @enderror" name="away_team_logo">
                                     </div>
+                                    @error('away_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>

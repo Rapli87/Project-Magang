@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
@@ -90,16 +91,14 @@ Route::group(['middleware' =>['is_logout']], function(){
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+    //pages
     Route::get('admin/upcoming-match', [UpcomingMatchController::class, 'index'])->name('upcoming-match.index');
+        Route::get('admin/upcoming-match/create', [UpcomingMatchController::class, 'create'])->name('upcoming-match.create');
+        Route::get('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'edit'])->name('upcoming-match.edit');     
+        Route::put('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'update'])->name('upcoming-match.update');
+        Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
+        Route::post('admin/upcoming-match', [UpcomingMatchController::class, 'store'])->name('upcoming-match.store');
 
-    Route::get('admin/upcoming-match/create', [UpcomingMatchController::class, 'create'])->name('upcoming-match.create');
-
-    Route::get('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'edit'])->name('upcoming-match.edit');
-    
-    Route::put('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'update'])->name('upcoming-match.update');
-
-    Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
-
-    Route::post('admin/upcoming-match', [UpcomingMatchController::class, 'store'])->name('upcoming-match.store');
-
+    //cms panel
+    Route::resource('categories', CategoryController::class);
 });

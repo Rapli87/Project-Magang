@@ -18,11 +18,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pertandingan Selanjutnya</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Categories</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Pertandingan Selanjutnya </h4>
+                            <h4 class="page-title">Categories </h4>
                         </div>
                     </div>
                 </div>
@@ -35,6 +35,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -52,48 +53,32 @@
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary mb-2">
+                                        <a href="{{ route('categories.create') }}" class="btn btn-primary mb-2">
                                             <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                         </a>
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Home</th>
-                                                <th>Away</th>
-                                                <th>Match Date Time</th>
-                                                <th>vanue</th>
-                                                <th>Logo Home</th>
-                                                <th>Logo Away</th>
-                                                <th>Description</th>
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Slug</th>
+                                                <th>Created At</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @forelse ($items as $item)
+                                            @foreach ($categories as $item)
                                                 <tr>
-                                                    <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->home_team }}</td>
-                                                    <td>{{ $item->away_team }}</td>
-                                                    <td>{{ $item->match_datetime }}</td>
-                                                    <td>{{ $item->vanue }}</td>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->slug }}</td>
+                                                    <td>{{ $item->created_at }}</td>
                                                     <td>
-                                                        <img src="{{ url('storage/' . $item->home_team_logo) }}"
-                                                            alt=""
-                                                            style="width: 150px; height: 150px; object-fit: cover;">
-                                                    </td>
-                                                    <td>
-                                                        <img src="{{ url('storage/' . $item->away_team_logo) }}"
-                                                            alt=""
-                                                            style="width: 150px; height: 150px; object-fit: cover;">
-                                                    </td>
-                                                    <td>{{ $item->description }}</td>
-                                                    <td>
-                                                        <a href="{{ route('upcoming-match.edit', $item->id) }}"
+                                                        <a href="{{ route('categories.edit', $item->id) }}"
                                                             class="btn btn-info">
                                                             <i class="ri-pencil-line text-light"></i>
                                                         </a>
-                                                        <form action="{{ route('upcoming-match.destroy', $item->id) }}"
+                                                        <form action="{{ route('categories.destroy', $item->id) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('delete')
@@ -106,13 +91,10 @@
                                                 </tr>
                                             @endforeach
                                             {{-- @empty
-
-                                                <tr>
-                                                    <td colspan="9" class="text-center">
-                                                        Data Kosong
-                                                    </td>
-                                                </tr>
-                                            @endforelse --}}
+                                                    <tr>
+                                                        <td colspan="5" class="text-center">Data Kosong</td>
+                                                    </tr>
+                                                @endforelse --}}
                                         </tbody>
                                     </table>
                                 </div>

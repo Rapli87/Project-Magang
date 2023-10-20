@@ -47,7 +47,7 @@ class UpcomingMatchController extends Controller
 
         UpcomingMatch::create($data);
 
-        return redirect()->route('upcoming-match.index');
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully created');
     }
 
     /**
@@ -88,7 +88,7 @@ class UpcomingMatchController extends Controller
         $item = UpcomingMatch::findOrFail($id);
         $item->update($data);
 
-        return redirect()->route('upcoming-match.index');
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully updated');
     }
 
     /**
@@ -99,6 +99,6 @@ class UpcomingMatchController extends Controller
         $item = UpcomingMatch::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('upcoming-match.index');
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully deleted');
     }
 }

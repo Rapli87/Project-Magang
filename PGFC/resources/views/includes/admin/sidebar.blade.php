@@ -110,6 +110,12 @@
                         <li>
                             <a href="auth-login.html">Blog</a>
                         </li>
+                        <li>
+                            <a href="articles.html">Articles</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('categories') }}">Categories</a>
+                        </li>
                     </ul>
                 </div>
             </li>
