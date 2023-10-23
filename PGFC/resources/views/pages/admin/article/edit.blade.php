@@ -1,21 +1,6 @@
 @extends('layouts.admin')
 
 @section('title', 'Edit Articles | PGFC Admin')
-@push('addon-style')
-    <!-- Datatables css -->
-    <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link href="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link href="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link href="{{ url('backend/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link href="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
-        rel="stylesheet" type="text/css" />
-    <link href="{{ url('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
-        type="text/css" />
-@endpush
 
 @section('content')
     <!-- ============================================================== -->
@@ -89,7 +74,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="desc" class="form-label">Description</label>
-                                    <textarea class="form-control" name="desc" placeholder="Description">{{ old('desc',$article->desc) }}</textarea>
+                                    <textarea name="desc" id="myeditor" cols="30" rows="10" class="form-control">{{ old('desc', $article->desc) }}</textarea>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="mb-3">
@@ -97,8 +82,9 @@
                                         <input type="file" class="form-control" name="img" id="img">
                                         <div class="mt-1">
                                             <small><b>Gambar Lama :</b></small><br>
-                                            <img src="{{ url('storage/admin/articles/'.$article->img) }}" alt="" width="80px">
+                                            <img src="{{ url('storage/admin/articles/'.$article->img) }}" class="img-thumbnail img-preview" width="100px">
                                         </div>
+                                        <div class="mt-1">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -137,23 +123,35 @@
     @endsection
 
     @push('addon-script')
-        <!-- Datatables js -->
-        <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}">
+        <script src="{{ url('https://code.jquery.com/jquery-3.5.1.js') }}"></script>
+        <script src="{{ url('https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js') }}"></script>
+        <script>
+            var options = {
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+                clipboard_handleImages: false,
+            }
         </script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}">
-        </script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
-        <script src="{{ url('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+        <script>
+            CKEDITOR.replace('myeditor', options);
 
-        <!-- Datatable Demo App js -->
-        <script src="{{ url('backend/assets/js/pages/datatable.init.js') }}"></script>
+            // img preview
+            $("#img").change(function() {
+                previewImg(this);
+            });
+
+            function previewImg(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('.img-preview').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>        
     @endpush

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use UniSharp\LaravelFilemanager\Lfm;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,4 +99,11 @@ Route::group(['middleware' =>['is_logout']], function(){
     //cms panel
     Route::resource('admin/articles', ArticleController::class);
     Route::resource('admin/categories', CategoryController::class);
+
 });
+
+//route unisharp
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
