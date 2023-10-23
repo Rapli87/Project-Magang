@@ -55,7 +55,7 @@
                             <a href="pages-profile.html">Hasil Pertandingan</a>
                         </li>
                         <li>
-                            <a href="{{ route('upcoming-match.index') }}">Pertandingan Selanjutnya</a>
+                            <a href="{{ url('admin/upcoming-match') }}">Pertandingan Selanjutnya</a>
                         </li>
                         <li>
                             <a href="pages-invoice.html">Statistik</a>
@@ -111,10 +111,10 @@
                             <a href="auth-login.html">Blog</a>
                         </li>
                         <li>
-                            <a href="articles.html">Articles</a>
+                            <a href="{{ url('admin/articles') }}">Articles</a>
                         </li>
                         <li>
-                            <a href="{{ url('categories') }}">Categories</a>
+                            <a href="{{ url('admin/categories') }}">Categories</a>
                         </li>
                     </ul>
                 </div>

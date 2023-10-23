@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('category_id')->index()->constrained();
             $table->string('title');
             $table->string('slug');
-            $table->longText('desc');
+            $table->text('desc')->nullable();
             $table->string('img');
             $table->string('status');
-            $table->integer('views');
+            $table->integer('views')->default(0);
             $table->date('publish_date');
             $table->softDeletes();
             $table->timestamps();

@@ -163,7 +163,7 @@ class UserController extends Controller
 
         $useCredential = $request->only('email', 'password');
         if(Auth::attempt($useCredential)){
-            return redirect('/dashboard');
+            return redirect('admin/dashboard');
         }
         else{
             return back()->with('error', 'Username & Password is incorect!');

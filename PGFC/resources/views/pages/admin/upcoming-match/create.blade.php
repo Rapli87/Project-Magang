@@ -1,5 +1,22 @@
 @extends('layouts.admin')
 
+@section('title', 'Create Pertandingan Selanjutnya | PGFC Admin')
+@push('addon-style')
+    <!-- Datatables css -->
+    <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+@endpush
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
@@ -79,7 +96,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="match_datetime" class="form-label">Match Date Time</label>
-                                        <input type="datetime-local" class="form-control @error('match_datetime') is-invalid @enderror"
+                                        <input type="datetime-local"
+                                            class="form-control @error('match_datetime') is-invalid @enderror"
                                             name="match_datetime" placeholder="Date" value="{{ old('match_datetime') }}">
                                         @error('match_datetime')
                                             <div class="invalid-feedback">
@@ -89,7 +107,9 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="home_team_logo" class="form-label">Logo Home</label>
-                                        <input type="file" class="form-control @error('home_team_logo') is-invalid @enderror" name="home_team_logo">
+                                        <input type="file"
+                                            class="form-control @error('home_team_logo') is-invalid @enderror"
+                                            name="home_team_logo">
                                     </div>
                                     @error('home_team_logo')
                                         <div class="invalid-feedback">
@@ -98,7 +118,9 @@
                                     @enderror
                                     <div class="mb-3">
                                         <label for="away_team_logo" class="form-label">Logo Home</label>
-                                        <input type="file" class="form-control @error('away_team_logo') is-invalid @enderror" name="away_team_logo">
+                                        <input type="file"
+                                            class="form-control @error('away_team_logo') is-invalid @enderror"
+                                            name="away_team_logo">
                                     </div>
                                     @error('away_team_logo')
                                         <div class="invalid-feedback">
@@ -124,3 +146,24 @@
         <!-- End Page content -->
         <!-- ============================================================== -->
     @endsection
+    @push('addon-script')
+        <!-- Datatables js -->
+        <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}">
+        </script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}">
+        </script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+
+        <!-- Datatable Demo App js -->
+        <script src="{{ url('backend/assets/js/pages/datatable.init.js') }}"></script>
+    @endpush

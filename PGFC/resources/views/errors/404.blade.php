@@ -29,22 +29,22 @@
                     <div class="card overflow-hidden">
                         <div class="row g-0">
                             <div class="col-lg-6 d-none d-lg-block p-2">
-                                <img src="backend/assets/images/bg.png" alt="" class="img-fluid rounded h-100">
+                                <img src="{{url('backend/assets/images/bg.png')}}" alt="" class="img-fluid rounded h-100">
                             </div>
                             <div class="col-lg-6">
                                 <div class="d-flex flex-column h-100">
                                     <div class="auth-brand p-4">
                                         <a href="#" class="logo-light">
-                                            <img src="frontend/images/logo-pgfc.png" alt="logo" height="22">
+                                            <img src="{{ url('frontend/images/logo-pgfc.png') }}" alt="logo" height="22">
                                         </a>
                                         <a href="" class="logo-dark">
-                                            <img src="frontend/images/logo-pgfc.png" alt="dark logo" height="80"
+                                            <img src="{{ url('frontend/images/logo-pgfc.png') }}" alt="dark logo" height="80"
                                                 weight="80">
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
                                         <div class="d-flex justify-content-center mb-5">
-                                            <img src="backend/assets/images/svg/404.svg" alt="" class="img-fluid">
+                                            <img src="{{ url('backend/assets/images/svg/404.svg') }}" alt="" class="img-fluid">
                                         </div>
 
                                         <div class="text-center">

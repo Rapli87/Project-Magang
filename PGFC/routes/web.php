@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -70,7 +71,7 @@ Route::resource('/', HomeController::class);
 
 //     });
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 // refferal 
 Route::group(['middleware' =>['is_login']], function(){
@@ -87,18 +88,14 @@ Route::group(['middleware' =>['is_login']], function(){
 
 Route::group(['middleware' =>['is_logout']], function(){
 
-    Route::get('/dashboard', [UserController::class, 'loadDashboard'])->name('dashboard');
+    Route::get('admin/dashboard', [UserController::class, 'loadDashboard'])->name('dashboard');
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     //pages
-    Route::get('admin/upcoming-match', [UpcomingMatchController::class, 'index'])->name('upcoming-match.index');
-        Route::get('admin/upcoming-match/create', [UpcomingMatchController::class, 'create'])->name('upcoming-match.create');
-        Route::get('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'edit'])->name('upcoming-match.edit');     
-        Route::put('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'update'])->name('upcoming-match.update');
-        Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
-        Route::post('admin/upcoming-match', [UpcomingMatchController::class, 'store'])->name('upcoming-match.store');
+    Route::resource('admin/upcoming-match', UpcomingMatchController::class);
 
     //cms panel
-    Route::resource('categories', CategoryController::class);
+    Route::resource('admin/articles', ArticleController::class);
+    Route::resource('admin/categories', CategoryController::class);
 });
