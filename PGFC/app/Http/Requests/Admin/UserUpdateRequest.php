@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateArticleRequest extends FormRequest
+class UserUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,11 @@ class UpdateArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id'   => 'required',
-            'title'         => 'required',
-            'desc'          => 'required',
-            'img'           => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
-            'status'        => 'required',
-            'publish_date'  => 'required',
+            'name'              => 'required|min:3',
+            'email'             => 'required|email',
+            'password'          => 'nullable|min:8|confirmed',
+            'password_confirmation'  => 'nullable|min:8|required_with:password',
+
         ];
     }
 }

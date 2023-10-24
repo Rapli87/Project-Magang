@@ -80,7 +80,7 @@
                 <div class="collapse" id="sidebarPagesAuth">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="auth-login.html">Auth User</a>
+                            <a href="{{ url('admin/users') }}">Auth User</a>
                         </li>
                     </ul>
                 </div>
@@ -108,7 +108,7 @@
                             <a href="auth-login.html">Aturan</a>
                         </li>
                         <li>
-                            <a href="auth-login.html">Blog</a>
+                            <a href="{{ ('dashboard-blog') }}">Dashboard Blog</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/articles') }}">Articles</a>

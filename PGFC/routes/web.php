@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
 use UniSharp\LaravelFilemanager\Lfm;
 /*
 |--------------------------------------------------------------------------
@@ -51,29 +49,6 @@ Route::resource('/', HomeController::class);
     // Route::get('404', [HomeController::class, 'error'])
     //     ->name('pages.404');
 
-
-// Admin
-// Route::prefix('admin')
-//     ->middleware(['auth', 'admin'])
-//     ->namespace('Admin')
-//     ->group(function(){
-//         Route::get('/', [DashboardController::class, 'index'])
-//             ->name('dashboard');
-
-//         Route::get('admin/upcoming-match', [UpcomingMatchController::class, 'index'])->name('upcoming-match.index');
-
-//         Route::get('admin/upcoming-match/create', [UpcomingMatchController::class, 'create'])->name('upcoming-match.create');
-
-//         Route::get('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'edit'])->name('upcoming-match.edit');
-
-//         Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
-
-//         Route::post('admin/upcoming-match', [UpcomingMatchController::class, 'store'])->name('upcoming-match.store');
-
-//     });
-
-// Auth::routes(['verify' => true]);
-
 // refferal 
 Route::group(['middleware' =>['is_login']], function(){
     Route::get('/register', [UserController::class, 'loadRegister'])->name('register');
@@ -89,7 +64,10 @@ Route::group(['middleware' =>['is_login']], function(){
 
 Route::group(['middleware' =>['is_logout']], function(){
 
+    //dashboard utama
     Route::get('admin/dashboard', [UserController::class, 'loadDashboard'])->name('dashboard');
+    //dashboard blog
+    Route::get('admin/dashboard-blog', [UserController::class, 'loadDashboardBlog'])->name('dashboard-blog');
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
@@ -100,10 +78,15 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/articles', ArticleController::class);
     Route::resource('admin/categories', CategoryController::class);
 
+    //user admin
+    Route::resource('admin/users', UserController::class);
+
+    //route unisharp
+    Route::group(['prefix' => 'laravel-filemanager'], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+
 });
 
-//route unisharp
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
+
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Categories | PGFC Admin')
+@section('title', 'Edit Users | PGFC Admin')
 
 @section('content')
     <!-- ============================================================== -->
@@ -44,8 +44,7 @@
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('categories.update', $item->id) }}" method="POST"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('users.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="row">
@@ -60,6 +59,48 @@
                                             </div>
                                         @enderror
                                     </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            name="email" placeholder="Email" value="{{ old('email', $item->email) }}">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password <small>(Kosongkan jika tidak diubah)</small></label>
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                            name="password" placeholder="Password" value="{{ old('password') }}">
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                                        <input type="password"
+                                            class="form-control @error('password_confirmation') is-invalid @enderror"
+                                            name="password_confirmation" placeholder="Confirm Password"
+                                            value="{{ old('password_confirmation') }}">
+                                        @error('password_confirmation')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div>
                                     <button type="submit" class="btn btn-primary btn-block">Edit</button>
                                 </div>
                             </div>

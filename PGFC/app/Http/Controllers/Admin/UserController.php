@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -13,10 +14,88 @@ use Illuminate\Support\Facades\URL;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\Article;
+use App\Models\Category;
+use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\UserUpdateRequest;
 
 class UserController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('pages.admin.user.index',[
+            'users' => User::get()
+        ]);
+    }
+    public function create()
+    {
+        return view('pages.admin.user.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(UserRequest $request)
+    {
+        $data = $request->validated();
+
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
+
+        return redirect()->route('users.index')->with('success', 'Users successfully created');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $item = User::findOrFail($id);
+
+        return view('pages.admin.user.edit',[
+            'item' => $item
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UserUpdateRequest $request, string $id)
+    {
+        $data = $request->validated();
+
+        if ($data['password'] != '') {
+            $data['password'] = bcrypt($data['password']);
+            User::find($id)->update($data);
+        } else {
+            User::find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email
+            ]);
+        }
+
+        return redirect()->route('users.index')->with('success', 'Users successfully updated');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        User::find($id)->delete();
+
+        return redirect()->route('users.index')->with('success', 'Users successfully deleted');
+    }
+
+    // refferal
     public function loadRegister()
     {
         return view('auth.register');
@@ -172,6 +251,16 @@ class UserController extends Controller
     public function loadDashboard()
     {
         return view('pages.admin.dashboard');
+    }
+
+    public function loadDashboardBlog()
+    {
+        return view('pages.admin.dashboard-blog', [
+            'total_articles'    => Article::count(),
+            'total_categories'  => Category::count(),
+            'latest_article'    => Article::with('Category')->whereStatus(1)->latest()->take(5)->get(),
+            'popular_article'   => Article::with('Category')->whereStatus(1)->orderBy('views', 'desc')->take(5)->get()
+        ]);
     }
 
     public function logout(Request $request){
