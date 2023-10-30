@@ -23,8 +23,14 @@ class UserController extends Controller
 {
     public function index()
     {
+        if (auth()->user()->role == 1) {
+            $users = User::get();
+        } else {
+            $users = User::where('id', auth()->user()->id)->get();
+        }
+        
         return view('pages.admin.user.index',[
-            'users' => User::get()
+            'users' => $users
         ]);
     }
     public function create()

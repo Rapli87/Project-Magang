@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Dashboard | PGFC Admin')
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Start Page Content here -->

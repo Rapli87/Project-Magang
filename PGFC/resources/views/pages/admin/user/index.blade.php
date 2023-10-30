@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 
-@section('title', 'Users | PGFC Admin')
+@if (auth()->user()->role == 1)
+    @section('title', 'Users | PGFC Admin')  
+@endif
+
+@if (auth()->user()->role == 2)
+    @section('title', 'Users | PGFC Users')     
+@endif
+
 @push('addon-style')
     <!-- Datatables css -->
     <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
@@ -56,23 +63,15 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            {{-- <div class="card-header">
-                                <h4 class="header-title">Buttons example</h4>
-                                <p class="text-muted mb-0">
-                                    The Buttons extension for DataTables provides a common set of options, API
-                                    methods and styling to display buttons on a page
-                                    that will interact with a DataTable. The core library provides the based
-                                    framework upon which plug-ins can built.
-                                </p>
-                            </div>
-                            <!-- end card header--> --}}
                             <div class="table-responsive">
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        <a href="{{ route('users.create') }}" class="btn btn-primary mb-2">
-                                            <i class="ri-add-circle-line text-ligth"> Create Users </i>
-                                        </a>
+                                        @if (auth()->user()->role == 1)
+                                            <a href="{{ route('users.create') }}" class="btn btn-primary mb-2">
+                                                <i class="ri-add-circle-line text-ligth"> Create Users </i>
+                                            </a>
+                                        @endif
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
@@ -115,15 +114,19 @@
                                                             class="btn btn-warning">
                                                             <i class="ri-pencil-line text-light"></i>
                                                         </a>
-                                                        <form action="{{ route('users.destroy', $item->id) }}"
-                                                            method="POST" class="d-inline">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <button class="btn btn-danger"
-                                                                onclick="return confirm('Yakin ingin menghapus data?')">
-                                                                <i class="ri-delete-bin-line text-light"></i>
-                                                            </button>
-                                                        </form>
+                                                        @if (auth()->user()->role == 1)
+                                                            @if ($item->id != auth()->user()->id)
+                                                                <form action="{{ route('users.destroy', $item->id) }}"
+                                                                    method="POST" class="d-inline">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button class="btn btn-danger"
+                                                                        onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                        <i class="ri-delete-bin-line text-light"></i>
+                                                                    </button>
+                                                                </form>
+                                                            @endif
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach

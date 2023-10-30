@@ -1,5 +1,23 @@
 @extends('layouts.admin')
 
+@section('title', 'Dashboard Blog | PGFC Admin')
+
+@push('addon-style')
+    <!-- Datatables css -->
+    <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+@endpush
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
@@ -87,7 +105,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                    
+
                                 <tbody>
                                     @foreach ($latest_article as $item)
                                         <tr>
@@ -96,7 +114,8 @@
                                             <td>{{ $item->Category->name }}</td>
                                             <td>{{ $item->created_at }}</td>
                                             <td class="text-center">
-                                                <a href="{{ url('admin/articles/' . $item->id) }}" class="btn btn-info btn-sm">
+                                                <a href="{{ url('admin/articles/' . $item->id) }}"
+                                                    class="btn btn-info btn-sm">
                                                     <i class="ri-eye-line text-light"></i>
                                                 </a>
                                             </td>
@@ -106,7 +125,7 @@
                             </table>
                         </div>
                     </div>
-                    
+
                     <div class="col-6">
                         <h4>Popular Articles</h4>
                         <div class="table-responsive">
@@ -120,7 +139,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                    
+
                                 <tbody>
                                     @foreach ($popular_article as $item)
                                         <tr>
@@ -129,7 +148,8 @@
                                             <td>{{ $item->Category->name }}</td>
                                             <td>{{ $item->views }} x</td>
                                             <td class="text-center">
-                                                <a href="{{ url('admin/articles/' . $item->id) }}" class="btn btn-info btn-sm">
+                                                <a href="{{ url('admin/articles/' . $item->id) }}"
+                                                    class="btn btn-info btn-sm">
                                                     <i class="ri-eye-line text-light"></i>
                                                 </a>
                                             </td>
@@ -147,3 +167,25 @@
             <!-- End Page content -->
             <!-- ============================================================== -->
         @endsection
+
+        @push('addon-script')
+            <!-- Datatables js -->
+            <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}">
+            </script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}">
+            </script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+            <script src="{{ url('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+
+            <!-- Datatable Demo App js -->
+            <script src="{{ url('backend/assets/js/pages/datatable.init.js') }}"></script>
+        @endpush

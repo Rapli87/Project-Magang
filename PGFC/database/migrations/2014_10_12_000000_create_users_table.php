@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('is_verified')->default(0);
             $table->string('password');
             $table->string('referral_code')->nullable();
+            $table->string('role', 2)->default(2); // 1 = admin, 2 = user
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

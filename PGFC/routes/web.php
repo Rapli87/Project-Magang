@@ -67,16 +67,16 @@ Route::group(['middleware' =>['is_logout']], function(){
     //dashboard utama
     Route::get('admin/dashboard', [UserController::class, 'loadDashboard'])->name('dashboard');
     //dashboard blog
-    Route::get('admin/dashboard-blog', [UserController::class, 'loadDashboardBlog'])->name('dashboard-blog');
+    Route::get('admin/dashboard-blog', [UserController::class, 'loadDashboardBlog'])->name('dashboard-blog')-> middleware('UserAccess:1');
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
     //pages
-    Route::resource('admin/upcoming-match', UpcomingMatchController::class);
+    Route::resource('admin/upcoming-match', UpcomingMatchController::class)-> middleware('UserAccess:1');
 
     //cms panel
-    Route::resource('admin/articles', ArticleController::class);
-    Route::resource('admin/categories', CategoryController::class);
+    Route::resource('admin/articles', ArticleController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/categories', CategoryController::class) -> middleware('UserAccess:1');
 
     //user admin
     Route::resource('admin/users', UserController::class);
