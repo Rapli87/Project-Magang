@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ArticleController as FrontendArticleController;
+use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
 use App\Models\Article;
 use UniSharp\LaravelFilemanager\Lfm;
 /*
@@ -23,34 +24,46 @@ use UniSharp\LaravelFilemanager\Lfm;
 // Frontend
 Route::get('/', [HomeController::class, 'index'])
     ->name('index');
-Route::get('about', [HomeController::class, 'about'])
-    ->name('pages.about');
+
 Route::get('blog', [HomeController::class, 'blog'])
     ->name('pages.blog');
 Route::post('blog/articles/search', [FrontendArticleController::class, 'index'])
     ->name('search');
 Route::get('blog/p/{slug}', [FrontendArticleController::class, 'show']);
 Route::get('blog/articles', [FrontendArticleController::class, 'index']);
-Route::get('blog-single', [HomeController::class, 'blog_single'])
-    ->name('pages.blog-single');
+
+Route::get('blog/category/{slug}',[FrontendCategoryController::class,'index']);
+
+// Route::get('blog-single', [HomeController::class, 'blog_single'])
+//     ->name('pages.blog-single');
+
 Route::get('competition', [HomeController::class, 'competition'])
     ->name('pages.competition');
+
 Route::get('contact', [HomeController::class, 'contact'])
     ->name('pages.contact');
+
 Route::get('details-club', [HomeController::class, 'details_club'])
     ->name('pages.details-club');
+
 Route::get('gallery', [HomeController::class, 'gallery'])
     ->name('pages.gallery');
-Route::get('pgfc', [HomeController::class, 'pgfc'])
-    ->name('pages.pgfc');
+
+Route::get('about', [HomeController::class, 'about'])
+    ->name('pages.about');
+
 Route::get('klasmen', [HomeController::class, 'klasmen'])
     ->name('pages.klasmen');
+
 Route::get('result', [HomeController::class, 'result'])
     ->name('pages.result');
+
 Route::get('result-single', [HomeController::class, 'result_single'])
     ->name('pages.result-single');
+
 Route::get('team', [HomeController::class, 'team'])
     ->name('pages.team');
+
 Route::get('team-single', [HomeController::class, 'team_single'])
     ->name('pages.team-single');
 

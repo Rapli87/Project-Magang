@@ -10,12 +10,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1 class="page-title">PGFC</h1>
+                        <h1 class="page-title">About PGFC</h1>
                         <ul>
                             <li>
                                 <a class="active" href="{{ route('index') }}">Home</a>
                             </li>
-                            <li>PGFC</li>
+                            <li>About PGFC</li>
                         </ul>
                     </div>
                 </div>

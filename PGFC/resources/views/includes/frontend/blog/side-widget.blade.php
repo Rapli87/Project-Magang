@@ -18,7 +18,7 @@
             <ul>
                 @foreach ($categories as $item)
                     <li>
-                        <i class="fa fa-angle-right" aria-hidden="true"></i><a href="#">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i><a href="{{ url('blog/category/'.$item->slug) }}">
                             {{ $item->name }}
                         </a>
                     </li>
@@ -66,7 +66,7 @@
                                             title="News image" />
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <h4><a href="{{ route('pages.blog-single') }}">Raken develops
+                                        <h4><a href="{{ route('pages.blog') }}">Raken develops
                                                 The software</a></h4>
                                         <span class="date"><i class="fa fa-calendar"
                                                 aria-hidden="true"></i> June 28, 2017</span>
@@ -87,7 +87,7 @@
                                             title="News image" />
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <h4><a href="{{ route('pages.blog-single') }}">TRaken
+                                        <h4><a href="{{ route('pages.blog') }}">TRaken
                                                 develops The software</a></h4>
                                         <span class="date"><i class="fa fa-calendar"
                                                 aria-hidden="true"></i> June 28, 2017</span>
@@ -108,7 +108,7 @@
                                             title="News image" />
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                        <h4><a href="{{ route('pages.blog-single') }}">Raken develops
+                                        <h4><a href="{{ route('pages.blog') }}">Raken develops
                                                 The software</a></h4>
                                         <span class="date"><i class="fa fa-calendar"
                                                 aria-hidden="true"></i> June 28, 2017</span>
@@ -120,7 +120,7 @@
                 </li>
             </ul>
         </div>
-        <div class="tag-area">
+        {{-- <div class="tag-area">
             <span class="title">Product Tags</span>
             <ul>
                 <li>
@@ -167,6 +167,6 @@
                 <button class="btn btn-default" type="submit"><i class="fa fa-arrow-right"
                         aria-hidden="true"></i></button>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>

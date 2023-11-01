@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Blog')
+@section('title', 'Blog Articles')
 
 @section('content')
 
@@ -10,12 +10,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1 class="page-title">{{ $latest_post->title }}</h1>
+                        <h1 class="page-title">Blog Articles</h1>
                         <ul>
                             <li>
-                                <a class="active" href="index.html">Home</a>
+                                <a class="active" href="{{ route('index') }}">Home</a>
                             </li>
-                            <li>News</li>
+                            <li>
+                                <a class="active" href="">Blog</a>
+                            </li>
+                            <li>
+                                <a class="active" href="">Articles</a>
+                            </li>
+                            <li>{{ $keyword }}</li>
                         </ul>
                     </div>
                 </div>

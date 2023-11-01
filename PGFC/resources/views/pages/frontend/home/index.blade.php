@@ -188,7 +188,7 @@
                                                 <img src="frontend/images/latest/news1.jpg" alt="" />
                                             </a>
                                         </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog-single') }}">32 Tim SMA
+                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">32 Tim SMA
                                                 Bersaing di Turnamen Futsal PGFC 2023</a></h4>
                                         <div class="news-desc">
                                             <p>
@@ -212,7 +212,7 @@
                                                 <img src="frontend/images/latest/news2.jpg" alt="" />
                                             </a>
                                         </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog-single') }}">Petrokimia
+                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">Petrokimia
                                                 Gresik Bersama 4 Besar Peserta PGFC 2022 Sepakat Tak
                                                 Lanjutkan Pertandingan</a></h4>
                                         <div class="news-desc">
@@ -235,7 +235,7 @@
                                                 <img src="frontend/images/latest/news3.jpg" alt="" />
                                             </a>
                                         </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog-single') }}">Dorong
+                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">Dorong
                                                 Munculnya Atlit Berprestasi, Petrokimia Gresik Gelar
                                                 Kompetisi PGFC 2022</a></h4>
                                         <div class="news-desc">
@@ -497,11 +497,11 @@
                 <div class="col-md-4 latest-news">
                     <div class="inner-news small-news">
                         <div class="news-img">
-                            <a href="{{ route('pages.blog-single') }}"><img src="frontend/images/latest-video/latest1.png"
+                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest1.png"
                                     alt="News" /></a>
                         </div>
                         <div class="news-text">
-                            <h5><a href="{{ route('pages.blog-single') }}">Technical Meeting
+                            <h5><a href="{{ route('pages.blog') }}">Technical Meeting
                                     Petrokimia Gresik Futsal
                                     Championship (PGFC 2023)</a></h5>
                             <span class="date">Senin, 14 Agustus 2023</span>
@@ -515,11 +515,11 @@
                     </div>
                     <div class="inner-news small-news">
                         <div class="news-img">
-                            <a href="{{ route('pages.blog-single') }}"><img src="frontend/images/latest-video/latest2.png"
+                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest2.png"
                                     alt="News" /></a>
                         </div>
                         <div class="news-text">
-                            <h5><a href="{{ route('pages.blog-single') }}">SMAN 1 GRESIK VS SMAN 2
+                            <h5><a href="{{ route('pages.blog') }}">SMAN 1 GRESIK VS SMAN 2
                                     LAMONGAN</a></h5>
                             <span class="date">Selasa, 22 Agustus 2023</span>
                             <ul class="rating">
@@ -532,11 +532,11 @@
                     </div>
                     <div class="inner-news small-news">
                         <div class="news-img">
-                            <a href="{{ route('pages.blog-single') }}"><img src="frontend/images/latest-video/latest3.png"
+                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest3.png"
                                     alt="News" /></a>
                         </div>
                         <div class="news-text">
-                            <h5><a href="{{ route('pages.blog-single') }}">SMAN 1 KEBOMAS VS SMAN 2
+                            <h5><a href="{{ route('pages.blog') }}">SMAN 1 KEBOMAS VS SMAN 2
                                     MOJOKERTO</a>
                             </h5>
                             <span class="date">Selasa, 22 Agustus 2023</span>

@@ -82,7 +82,7 @@
                                 <!-- Home -->
                                 <li><a href="{{ route('index') }}">Home</a>
                                 <li>
-                                    <a href="{{ route('pages.pgfc') }}">PGFC</a>
+                                    <a href="{{ route('pages.about') }}">About</a>
                                 </li>
                                 {{-- <li>
                                     <a href="{{ route('pages.details-club') }}">Details Club</a>
@@ -115,13 +115,14 @@
                                     </ul>
                                 </li>
 
-                                <li class="menu-item-has-children">
-                                    <a href="#">News</a>
+                                <li><a href="{{ route('pages.blog') }}">Blog</a></li>
+                                {{-- <li class="menu-item-has-children">
+                                    <a href="{{ route('pages.blog') }}">Blog</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{ route('pages.blog') }}">News</a></li>
                                         <li><a href="{{ route('pages.blog-single') }}">News Details</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
 
                                 <li><a href="{{ route('pages.contact') }}">Contact</a></li>
                             </ul>

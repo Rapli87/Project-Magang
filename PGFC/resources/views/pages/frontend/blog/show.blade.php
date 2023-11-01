@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Detail Blog')
+@section('title', $article->title. '- PGFC')
 
 @section('content')
     <!-- Breadcrumbs Section Start -->
@@ -33,7 +33,7 @@
                 <div class="col-md-8 col-sm-12">
                     <div class="single-image">
                         <img class="single-img" src="{{ asset('storage/admin/articles/' . $article->img) }}"
-                            alt="...">
+                            alt="{{ $article->title }}">
                     </div>
                     <h3><a href="{{ url('blog/p/' . $article->slug) }}">{{ $article->title }}</a></h3>
                     <p>{!! $article->desc !!}</p>
@@ -43,9 +43,9 @@
                                 <span class="author">
                                     <a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> Admin </a>
                                 </span>
-                                <span class="comment">
+                                <span class="eye">
                                     <a href="#">
-                                        <i class="fa fa-commenting-o" aria-hidden="true"></i> 12
+                                        <i class="fa fa-eye" aria-hidden="true"></i> {{ $article->views }}x
                                     </a>
                                 </span>
                                 <span class="date">
@@ -53,21 +53,21 @@
                                     {{ $article->created_at->format('d-m-Y') }}
                                 </span>
                                 <span class="cat">
-                                    <a href="#"><i class="fa fa-folder-o" aria-hidden="true"></i> Life Style </a>
+                                    <a href="{{ url('blog/category/'.$article->Category->slug) }}"><i class="fa fa-folder-o" aria-hidden="true"></i> {{ $article->Category->name }} </a>
                                 </span>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
+                            {{-- <div class="col-sm-6 col-xs-12">
                                 <ul class="share-link1">
                                     <li><a href="#"> Tags:</a></li>
                                     <li><a href="#"> Football</a></li>
                                     <li><a href="#"> Club</a></li>
                                     <li><a href="#"> Sports</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
-                    <div class="share-section2">
+                    {{-- <div class="share-section2">
                         <div class="row">
                             <div class="col-sm-6 col-xs-12">
                                 <span> You Can Share It : </span>
@@ -83,7 +83,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 {{-- side widget --}}
                 @include('includes.frontend.blog.side-widget')

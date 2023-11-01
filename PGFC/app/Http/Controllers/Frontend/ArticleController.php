@@ -27,7 +27,6 @@ class ArticleController extends Controller
         }
 
         return view('pages.frontend.blog.index', [
-            'latest_post' => Article::latest()->first(),
             'articles' => $articles,
             'keyword' => $keyword
         ]);
@@ -35,9 +34,13 @@ class ArticleController extends Controller
 
     public function show($slug) 
     {
+        $articles = Article::where('slug', $slug)->firstOrfail();
+        $articles->increment('views');
+
         return view('pages.frontend.blog.show', [
-            'article' => Article::where('slug', $slug)->first(),
-            'categories' => Category::latest()->get(),
+            'article' => $articles,
+            // 'categories' => Category::latest()->get(),
+            'categories' => Category::latest()->take(3)->get()
         ]);
     }
 }

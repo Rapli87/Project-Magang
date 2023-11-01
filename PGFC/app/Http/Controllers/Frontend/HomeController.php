@@ -21,19 +21,20 @@ class HomeController extends Controller
     {
         return view('pages.frontend.blog.blog',[
             'latest_post' => Article::latest()->first(),
-            'articles' => Article::with('Category')->whereStatu (1)->latest()->simplePaginate(5),
-            'categories' => Category::latest()->get()
+            'articles' => Article::with('Category')->whereStatus (1)->latest()->simplePaginate(5),
+            // 'categories' => Category::latest()->get()
+            'categories' => Category::latest()->take(3)->get()
         ]);
     }
 
-    public function blog_single(Request $request)
-    {
-        return view('pages.frontend.blog.blog-single',[
-            'latest_post' => Article::latest()->first(),
-            'articles' => Article::with('Category') ->whereStatus(1)->latest()->simplePaginate(5),
-            'categories' => Category::latest()->get()
-        ]);
-    }
+    // public function blog_single(Request $request)
+    // {
+    //     return view('pages.frontend.blog.blog-single',[
+    //         'latest_post' => Article::latest()->first(),
+    //         'articles' => Article::with('Category') ->whereStatus(1)->latest()->simplePaginate(5),
+    //         'categories' => Category::latest()->get()
+    //     ]);
+    // }
 
     public function competition(Request $request)
     {
@@ -51,9 +52,9 @@ class HomeController extends Controller
     {
         return view('pages.frontend.klasmen.klasmen');
     }
-    public function pgfc(Request $request)
+    public function about(Request $request)
     {
-        return view('pages.frontend.pgfc.pgfc');
+        return view('pages.frontend.about.about');
     }  
     public function result(Request $request)
     {

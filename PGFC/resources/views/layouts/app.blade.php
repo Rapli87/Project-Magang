@@ -1,10 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="{{ str_replace('_','-', app()->getLocale()) }}">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
+    <meta name="author" content="Petrokimia Gresik">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @stack('meta-seo')
     <title>@yield('title')</title>

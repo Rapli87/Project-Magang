@@ -21,7 +21,7 @@
                                 <span>June</span>
                             </div>
                             <div class="post-desc">
-                                <h5 class="post-title"><a href="{{ route('pages.blog-single') }}">Welcome to PGFC Template</a></h5>
+                                <h5 class="post-title"><a href="#">Welcome to PGFC Template</a></h5>
                                 <span class="post-category">Design</span>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                                 <span>July</span>
                             </div>
                             <div class="post-desc">
-                                <h5 class="post-title"><a href="{{ route('pages.blog-single') }}">Welcome to sports template</a></h5>
+                                <h5 class="post-title"><a href="#">Welcome to sports template</a></h5>
                                 <span class="post-category">Design</span>
                             </div>
                         </div>
