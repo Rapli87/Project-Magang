@@ -248,15 +248,24 @@ class UserController extends Controller
 
         $useCredential = $request->only('email', 'password');
         if(Auth::attempt($useCredential)){
-            return redirect('admin/dashboard');
-        }
-        else{
-            return back()->with('error', 'Username & Password is incorect!');
+            // Cek peran (role) pengguna yang berhasil masuk
+            $user = Auth::user();
+            if (auth()->user()->role == 1) {
+                return redirect('admin/dashboard');
+            } elseif (auth()->user()->role == 2) {
+                return redirect('user/dashboard');
+            }
+        } else {
+            return back()->with('error', 'Username & Password is incorrect!');
         }
     }
-    public function loadDashboard()
+    public function loadDashboardAdmin()
     {
-        return view('pages.admin.dashboard');
+        return view('pages.admin.dashboard-admin');
+    }
+    public function loadDashboardUser()
+    {
+        return view('pages.admin.dashboard-user');
     }
 
     public function loadDashboardBlog()

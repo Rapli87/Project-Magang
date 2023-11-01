@@ -17,8 +17,12 @@ class IsLogin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()) {
-            return redirect()->route('dashboard');
+            if (auth()->user()->role == 1) {
+                return redirect()->route('dashboard-admin');
+            } else if (auth()->user()->role == 2) {
+                return redirect()->route('dashboard-user');
         }
+    }
                 
         return $next($request);
     }

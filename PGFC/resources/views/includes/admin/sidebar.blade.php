@@ -4,7 +4,7 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="{{ route('dashboard') }}" class="logo logo-light">
+    <a href="{{ route('dashboard-admin') }}" class="logo logo-light">
         <span class="logo-lg">
             <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
         </span>
@@ -14,7 +14,7 @@
     </a>
 
     <!-- Brand Logo Dark -->
-    <a href="{{ route('dashboard') }}" class="logo logo-dark">
+    <a href="{{ route('dashboard-admin') }}" class="logo logo-dark">
         <span class="logo-lg">
             <img src="{{ url('backend/assets/images/logo-dark.png') }}" alt="dark logo">
         </span>
@@ -31,7 +31,7 @@
             <li class="side-nav-title">PGFC | ADMIN</li>
 
             <li class="side-nav-item">
-                <a href="{{ route('dashboard') }}" class="side-nav-link">
+                <a href="{{ route('dashboard-admin') }}" class="side-nav-link">
                     <i class="ri-dashboard-3-line"></i>
                     <span class="badge bg-success float-end">9+</span>
                     <span> Dashboard </span>
@@ -137,7 +137,7 @@
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
-    <a href="{{ route('dashboard') }}" class="logo logo-light">
+    <a href="{{ route('dashboard-user') }}" class="logo logo-light">
         <span class="logo-lg">
             <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
         </span>
@@ -147,7 +147,7 @@
     </a>
 
     <!-- Brand Logo Dark -->
-    <a href="{{ route('dashboard') }}" class="logo logo-dark">
+    <a href="{{ route('dashboard-user') }}" class="logo logo-dark">
         <span class="logo-lg">
             <img src="{{ url('backend/assets/images/logo-dark.png') }}" alt="dark logo">
         </span>
@@ -164,7 +164,7 @@
             <li class="side-nav-title">PGFC | Users</li>
 
             <li class="side-nav-item">
-                <a href="{{ route('dashboard') }}" class="side-nav-link">
+                <a href="{{ route('dashboard-user') }}" class="side-nav-link">
                     <i class="ri-dashboard-3-line"></i>
                     <span class="badge bg-success float-end">9+</span>
                     <span> Dashboard </span>
@@ -224,7 +224,7 @@
                 <div class="collapse" id="sidebarPagesAuth">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ url('admin/users') }}">Auth User</a>
+                            <a href="{{ url('user/users') }}">Auth User</a>
                         </li>
                     </ul>
                 </div>

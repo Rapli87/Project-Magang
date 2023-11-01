@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
+use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -9,71 +12,66 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('pages.home');
+        return view('pages.frontend.home.index');
     }
-    public function blog(Request $request)
+
+    public function blog()
     {
-        //
-        return view('pages.blog');
+        return view('pages.frontend.blog.blog',[
+            'latest_post' => Article::latest()->first(),
+            'articles' => Article::with('Category')->whereStatu (1)->latest()->simplePaginate(5),
+            'categories' => Category::latest()->get()
+        ]);
     }
+
     public function blog_single(Request $request)
     {
-        //
-        return view('pages.blog-single');
+        return view('pages.frontend.blog.blog-single',[
+            'latest_post' => Article::latest()->first(),
+            'articles' => Article::with('Category') ->whereStatus(1)->latest()->simplePaginate(5),
+            'categories' => Category::latest()->get()
+        ]);
     }
+
     public function competition(Request $request)
     {
-        //
-        return view('pages.competition');
+        return view('pages.frontend.competition.competition');
     }
     public function contact(Request $request)
     {
-        //
-        return view('pages.contact');
+        return view('pages.frontend.contact.contact');
     }
     public function gallery(Request $request)
     {
-        //
-        return view('pages.gallery');
+        return view('pages.frontend.gallery.gallery');
     }
     public function klasmen(Request $request)
     {
-        //
-        return view('pages.klasmen');
+        return view('pages.frontend.klasmen.klasmen');
     }
     public function pgfc(Request $request)
     {
-        //
-        return view('pages.pgfc');
+        return view('pages.frontend.pgfc.pgfc');
     }  
     public function result(Request $request)
     {
-        //
-        return view('pages.result');
+        return view('pages.frontend.result.result');
     }
     public function result_single(Request $request)
     {
-        //
-        return view('pages.result-single');
+        return view('pages.frontend.result.result-single');
     }
     public function team(Request $request)
     {
-        //
-        return view('pages.team');
+        return view('pages.frontend.team.team');
     }
     public function team_single(Request $request)
     {
-        //
-        return view('pages.team-single');
+        return view('pages.frontend.team-single.team');
     }
 
-    // public function error(Request $request)
-    // {
-    //     //
-    //     return view('pages.404');
-    // }
     /**
      * Show the form for creating a new resource.
      */

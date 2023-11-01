@@ -100,10 +100,7 @@
                                                 <li><a href="{{ route('pages.team-single') }}">Team Single</a></li>
                                             </ul>
                                         </li> --}}
-                                        <li class="menu-item-has-children"><a href="#">Gallery</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="{{ route('pages.gallery') }}">Gallery</a></li>
-                                            </ul>
+                                        <li><a href="{{ route('pages.gallery') }}">Gallery</a>
                                         </li>
                                     </ul>
                                 </li>

@@ -12,32 +12,32 @@
             data-md-device-dots="false">
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor1.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor1.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor2.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor2.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor3.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor3.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor4.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor4.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor5.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor5.png') }}" alt=""></a>
                 </div>
             </div>
             <div class="item">
                 <div class="single-logo">
-                    <a href="#"><img src="frontend/images/logo/sponsor6.png" alt=""></a>
+                    <a href="#"><img src="{{ asset('frontend/images/logo/sponsor6.png') }}" alt=""></a>
                 </div>
             </div>
         </div>
