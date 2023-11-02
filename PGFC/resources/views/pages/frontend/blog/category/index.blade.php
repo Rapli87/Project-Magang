@@ -60,7 +60,7 @@
                                 <span class="date">
                                     <i class="fa fa-calendar-check-o"></i>
                                     {{ $item->created_at->format('d-m-Y') }}
-                                    <a href="{{ url('category/' . $item->Category->slug) }}">{{ $item->Category->name }}</a>
+                                    <a href="{{ url('blog/category/' . $item->Category->slug) }}">{{ $item->Category->name }}</a>
                                 </span>
                                 <h3><a href="{{ url('blog/p/' . $item->slug) }}">{{ $item->title }} </a></h3>
                                 <p>{!! Str::limit(html_entity_decode(strip_tags($item->desc)), 200, '...') !!}</p>

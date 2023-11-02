@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -39,8 +38,6 @@ class ArticleController extends Controller
 
         return view('pages.frontend.blog.show', [
             'article' => $articles,
-            // 'categories' => Category::latest()->get(),
-            'categories' => Category::latest()->take(3)->get()
         ]);
     }
 }

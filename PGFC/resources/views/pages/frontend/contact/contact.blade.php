@@ -28,7 +28,10 @@
 <!-- Contact Section Start -->
 <div class="contact-page-section sec-spacer">
 	<div class="container">
-		<div id="googleMap"></div>
+		<div class="text-center">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.7203261895856!2d112.63686207499869!3d-7.158297592846252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd80066ea63ec7f%3A0x94595f4ed5d14702!2sGOR%20Tridharma%20Petrokimia%20Gresik!5e0!3m2!1sid!2sid!4v1698894743720!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+		{{-- <div id="googleMap"></div> --}}
 		<div class="map-text">
 			<h3>Contact Info</h3>
 			<p>Hubungi kami</p>
@@ -59,7 +62,7 @@
 			</div>
 		</div>
 
-		<div class="contact-comment-section">
+		{{-- <div class="contact-comment-section">
 			<h3>Contact Form</h3>
 			<div id="form-message"></div>
 			<form id="contact-form" method="post" action="https://keenitsolutions.com/products/html/soccer/mailer.php">
@@ -107,7 +110,7 @@
 					</div>    
 				</fieldset>
 			</form>						
-		</div>
+		</div> --}}
 	</div>
 </div>
 <!-- Contact Section End -->
@@ -173,7 +176,7 @@
     <script src="{{ url('frontend/js/jquery.counterup.min.js')}}"></script>
     <script src="{{ url('frontend/js/waypoints.min.js')}}"></script>
         <!-- moogle map js -->
-    <script src="{{ url('https://maps.googleapis.com/maps/api/js?key=AIzaSyAgC6ZapXdUzFdeQOFhdm_wucwlDMMQ8CQ')}}"></script>
+    {{-- <script src="{{ url('https://maps.googleapis.com/maps/api/js?key=AIzaSyAgC6ZapXdUzFdeQOFhdm_wucwlDMMQ8CQ')}}"></script> --}}
         <!-- contact popup form js -->
     <script src="{{ url('frontend/js/contact.form.js')}}"></script>
 		<!-- main js -->		

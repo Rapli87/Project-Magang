@@ -108,7 +108,7 @@
                                     <span class="date">
                                         <i class="fa fa-calendar"></i> {{ $item->created_at->format('d-m-Y') }}
                                         <a
-                                            href="{{ url('category/' . $item->Category->slug) }}">{{ $item->Category->name }}</a>
+                                            href="{{ url('blog/category/' . $item->Category->slug) }}">{{ $item->Category->name }}</a>
                                     </span>
                                 </div>
                             @endforeach

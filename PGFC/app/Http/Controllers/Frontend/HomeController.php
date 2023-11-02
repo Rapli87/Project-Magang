@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,8 +21,6 @@ class HomeController extends Controller
         return view('pages.frontend.blog.blog',[
             'latest_post' => Article::latest()->first(),
             'articles' => Article::with('Category')->whereStatus (1)->latest()->simplePaginate(5),
-            // 'categories' => Category::latest()->get()
-            'categories' => Category::latest()->take(3)->get()
         ]);
     }
 
