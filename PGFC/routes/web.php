@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -97,6 +98,7 @@ Route::group(['middleware' =>['is_logout']], function(){
     //cms panel
     Route::resource('admin/articles', ArticleController::class)-> middleware('UserAccess:1');
     Route::resource('admin/categories', CategoryController::class) -> middleware('UserAccess:1');
+    Route::resource('admin/testimonials', TestimonialController::class)-> middleware('UserAccess:1');
 
     //user admin
     Route::resource('admin/users', UserController::class)-> middleware('UserAccess:1');

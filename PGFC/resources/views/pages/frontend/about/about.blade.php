@@ -208,67 +208,7 @@
         <!-- Point Table Section End -->
         
         <!-- Testimonials Sections Start Here-->
-        <div class="testimonial-section pb-100">
-            <div class="container">
-                <h3 class="title-bg">Testimonials</h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="testimonial-slider" class="rs-carousel owl-carousel" data-loop="true"
-                            data-items="1" data-margin="0" data-autoplay="true" data-autoplay-timeout="6000"
-                            data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false"
-                            data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
-                            data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false"
-                            data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
-                            data-md-device="1" data-md-device-nav="false" data-md-device-dots="false">
-                            <div class="testimonial">
-                                <div class="testimonial-profile">
-                                    <a href="#"><img src="frontend/images/testimonial/tom.jpg" alt="tom"></a>
-                                </div>
-                                <div class="testimonial-content">
-                                    <h3 class="testimonial-title">Ir. I Ketut Rusnaya, M.M.</h3>
-                                    <span class="testimonial-post">Office Manager</span>
-                                    <div class="client-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                            aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i
-                                            class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o"
-                                            aria-hidden="true"></i>
-                                    </div>
-                                    <p class="testimonial-description">
-                                        “PGFC sangat mengedepankan fair play. Dan dari ajang ini diharapkan
-                                        dapat menjaring
-                                        talenta-talenta muda futsal yang nantinya bisa tampil di ajang yang
-                                        lebih tinggi”
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="testimonial">
-                                <div class="testimonial-profile">
-                                    <a href="#"><img src="frontend/images/testimonial/peter.jpg" alt=""></a>
-                                </div>
-                                <div class="testimonial-content">
-                                    <h3 class="testimonial-title">Wahyudi, Drs., S.H., M.M.</h3>
-                                    <span class="testimonial-post">CEO Founder </span>
-                                    <div class="client-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star"
-                                            aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i
-                                            class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o"
-                                            aria-hidden="true"></i>
-                                    </div>
-                                    <p class="testimonial-description">
-                                        “Memenangi pertandingan itu biasa, menang dengan sportif itu luar
-                                        biasa. Memenangi
-                                        pertandingan itu penting, tp lebih penting bermain dengan baik dan
-                                        sportif. Dream
-                                        work comes from good teamwork. You are here to play and win
-                                        sportively.”
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('includes.frontend.testimonials')
         <!-- Testimonials Sections End Here-->
     
 @endsection

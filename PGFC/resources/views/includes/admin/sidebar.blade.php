@@ -101,7 +101,7 @@
                             <a href="auth-login.html">Slider</a>
                         </li>
                         <li>
-                            <a href="auth-login.html">Testimonial</a>
+                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
                         </li>
                         <li>
                             <a href="auth-login.html">Gambar Skema</a>

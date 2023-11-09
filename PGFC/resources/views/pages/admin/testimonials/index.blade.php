@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Pertandingan Selanjutnya | PGFC Admin')
+@section('title', 'Testimonials | PGFC Admin')
 @push('addon-style')
     <!-- Datatables css -->
     <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
@@ -35,11 +35,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pertandingan Selanjutnya</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Testimonials</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Pertandingan Selanjutnya </h4>
+                            <h4 class="page-title">Testimonials </h4>
                         </div>
                     </div>
                 </div>
@@ -55,81 +55,53 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            {{-- <div class="card-header">
-                                <h4 class="header-title">Buttons example</h4>
-                                <p class="text-muted mb-0">
-                                    The Buttons extension for DataTables provides a common set of options, API
-                                    methods and styling to display buttons on a page
-                                    that will interact with a DataTable. The core library provides the based
-                                    framework upon which plug-ins can built.
-                                </p>
-                            </div>
-                            <!-- end card header--> --}}
                             <div class="table-responsive">
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary mb-2">
+                                        <a href="{{ route('testimonials.create') }}" class="btn btn-primary mb-2">
                                             <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                         </a>
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Home</th>
-                                                <th>Away</th>
-                                                <th>Match Date Time</th>
-                                                <th>vanue</th>
-                                                <th>Logo Home</th>
-                                                <th>Logo Away</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Rate</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @forelse ($items as $item)
+                                            @foreach ($testimonials as $testimonial)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->home_team }}</td>
-                                                    <td>{{ $item->away_team }}</td>
-                                                    <td>{{ $item->match_datetime }}</td>
-                                                    <td>{{ $item->vanue }}</td>
                                                     <td>
-                                                        <img src="{{ url('storage/' . $item->home_team_logo) }}"
-                                                            alt=""
-                                                            style="width: 150px; height: 150px; object-fit: cover;">
-                                                    </td>
+                                                        <img src="{{ url($testimonial->photo) }}" alt="{{ $testimonial->name }}" width="100px">
+                                                    </td>                                                    
+                                                    <td>{{ $testimonial->name }}</td>
+                                                    <td>{{ $testimonial->position }}</td>
+                                                    <td>{{ $testimonial->rate }}</td>
+                                                    <td>{{ $testimonial->description }}</td>
                                                     <td>
-                                                        <img src="{{ url('storage/' . $item->away_team_logo) }}"
-                                                            alt=""
-                                                            style="width: 150px; height: 150px; object-fit: cover;">
-                                                    </td>
-                                                    <td>{{ $item->description }}</td>
-                                                    <td>
-                                                        <a href="{{ route('upcoming-match.edit', $item->id) }}"
+                                                        <a href="{{ route('testimonials.edit', $testimonial->id) }}"
                                                             class="btn btn-warning">
-                                                            <i class="ri-pencil-line text-light"></i>
+                                                            <i class="ri-pencil-line text-ligth"></i>
                                                         </a>
-                                                        <form action="{{ route('upcoming-match.destroy', $item->id) }}"
+                                                        <form
+                                                            action="{{ route('testimonials.destroy', $testimonial->id) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('delete')
-                                                            <button class="btn btn-danger"
-                                                                onclick="return confirm('Yakin ingin menghapus data?')">
-                                                                <i class="ri-delete-bin-line text-light"></i>
+                                                            <button class="btn btn-danger">
+                                                                <i class="ri-delete-bin-line text-ligth"></i>
                                                             </button>
                                                         </form>
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            {{-- @empty
-
-                                                <tr>
-                                                    <td colspan="9" class="text-center">
-                                                        Data Kosong
-                                                    </td>
-                                                </tr>
-                                            @endforelse --}}
                                         </tbody>
                                     </table>
                                 </div>
