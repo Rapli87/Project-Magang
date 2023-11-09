@@ -31,7 +31,7 @@
                 @endforeach
             </div> --}}
         </div>
-        <div class="archives-box">
+        {{-- <div class="archives-box">
             <span class="title">Archives</span>
             <ul>
                 <li>
@@ -51,7 +51,7 @@
                         (17)</a>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         <div class="recent-post-area">
             <span class="title"> Recent Post</span>
             <ul class="news-post">

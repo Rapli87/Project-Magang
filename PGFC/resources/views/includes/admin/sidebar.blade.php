@@ -110,7 +110,7 @@
                             <a href="auth-login.html">Aturan</a>
                         </li>
                         <li>
-                            <a href="{{ ('dashboard-blog') }}">Dashboard Blog</a>
+                            <a href="{{ url('admin/dashboard-blog') }}">Dashboard Blog</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/articles') }}">Articles</a>

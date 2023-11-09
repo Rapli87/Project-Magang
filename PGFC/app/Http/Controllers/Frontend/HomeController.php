@@ -13,7 +13,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.frontend.home.index');
+        // $newsItems = Article::take(3)->get();
+        $articles = Article::whereStatus(1)->take(3)->latest()->get();
+
+        return view('pages.frontend.home.index',compact('articles'));
     }
 
     public function blog()

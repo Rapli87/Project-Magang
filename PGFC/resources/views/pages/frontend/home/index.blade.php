@@ -18,8 +18,9 @@
                                     <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
                                         class="CountDownTimer" data-date="2023-08-22 15:00:00"></div>
                                     <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1" data-animation-in="slideInUp"
-                                            data-animation-out="animate-out slideOutDown" target="_blank">Book a Ticket</a>
+                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
+                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
+                                            target="_blank">Book a Ticket</a>
                                     </div>
                                 </div>
                             </div>
@@ -34,12 +35,14 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="slider-text text-center">
-                                    <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">SMAN 1 KEBOMAS<span>VS</span>SMAN 2 MOJOKERTO</h1>
+                                    <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">SMAN 1
+                                        KEBOMAS<span>VS</span>SMAN 2 MOJOKERTO</h1>
                                     <div data-animation-in="slideInRight" data-animation-out="animate-out fadeOut"
                                         class="CountDownTimer" data-date="2023-08-22 16:00:00"></div>
                                     <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1" data-animation-in="slideInUp"
-                                            data-animation-out="animate-out slideOutDown" target="_blank">Book a Ticket</a>
+                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
+                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
+                                            target="_blank">Book a Ticket</a>
                                     </div>
                                 </div>
                             </div>
@@ -60,8 +63,9 @@
                                     <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
                                         class="CountDownTimer" data-date="2023-08-22 18:00:00"></div>
                                     <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1" data-animation-in="slideInUp"
-                                            data-animation-out="animate-out slideOutDown" target="_blank">Book a Ticket</a>
+                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
+                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
+                                            target="_blank">Book a Ticket</a>
                                     </div>
                                 </div>
                             </div>
@@ -78,11 +82,10 @@
         <div class="container">
             <h2>Upcoming Match</h2>
             <div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30"
-                data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false"
-                data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false"
-                data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="false"
-                data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false"
-                data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false"
+                data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false"
+                data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
+                data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
+                data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false"
                 data-md-device-dots="false">
                 <div class="item">
                     <div class="col-md-4 col-sm-4 col-xs-12 first">
@@ -181,88 +184,41 @@
                     <div class="row">
                         <div class="col-sm-9">
                             <div class="latest-news-slider">
-                                <div>
-                                    <div class="news-normal-block">
-                                        <div class="news-img">
-                                            <a href="#">
-                                                <img src="frontend/images/latest/news1.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">32 Tim SMA
-                                                Bersaing di Turnamen Futsal PGFC 2023</a></h4>
-                                        <div class="news-desc">
-                                            <p>
-                                                Sebanyak 32 tim dari berbagai SMA sederajat yang
-                                                berhasil lolos dari seleksi ketat sebanyak 65 tim akan
-                                                berpartisipasi dalam turnamen Petrokimia Gresik Futsal
-                                                Championship (PGFC) 2023. Kompetisi ini dijadwalkan akan
-                                                berlangsung mulai tanggal 22 September hingga 3
-                                                September 2023.
-                                            </p>
-                                        </div>
-                                        <div class="news-btn">
-                                            <a class="primary-btn" href="#">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="news-normal-block">
-                                        <div class="news-img">
-                                            <a href="#">
-                                                <img src="frontend/images/latest/news2.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">Petrokimia
-                                                Gresik Bersama 4 Besar Peserta PGFC 2022 Sepakat Tak
-                                                Lanjutkan Pertandingan</a></h4>
-                                        <div class="news-desc">
-                                            <p>
-                                                Sebagai bentuk belasungkawa atas tragedi di Stadion
-                                                Kanjuruhan Malang, Petrokimia Gresik bersama empat besar
-                                                peserta Petrokimia Gresik Futsal Championship (PGFC)
-                                                2022 sepakat untuk tidak melanjutkan pertandingan.
-                                            </p>
-                                        </div>
-                                        <div class="news-btn">
-                                            <a class="primary-btn" href="#">Read More</a>
+                                @foreach ($articles as $item)
+                                    <div>
+                                        <div class="news-normal-block">
+                                            <div class="news-img">
+                                                <a href="{{ url('blog/p/'.$item->slug) }}">
+                                                    <img src="{{ asset('storage/admin/articles/' . $item->img) }}"
+                                                        alt="{{ $item->title }}" />
+                                                </a>
+                                            </div>
+                                            <h4 class="news-title">
+                                                <a href="{{ url('blog/p/' . $item->slug) }}">{{ $item->title }} </a>
+                                            </h4>
+                                            <div class="news-desc">
+                                                <p>
+                                                    {!! Str::limit(html_entity_decode(strip_tags($item->desc)), 200, '...') !!}
+                                                </p>
+                                            </div>
+                                            <div class="news-btn">
+                                                <a class="primary-btn" href="{{ url('blog/p/' . $item->slug) }}">Read
+                                                    More</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="news-normal-block">
-                                        <div class="news-img">
-                                            <a href="#">
-                                                <img src="frontend/images/latest/news3.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <h4 class="news-title"><a href="{{ route('pages.blog') }}">Dorong
-                                                Munculnya Atlit Berprestasi, Petrokimia Gresik Gelar
-                                                Kompetisi PGFC 2022</a></h4>
-                                        <div class="news-desc">
-                                            <p>
-                                                Untuk mendorong Bibit-bibit atlet berprestasi,
-                                                Petrokimia Gresik kembali menggelar kompetisi futsal
-                                                pada ajang Petrokimia Gresik Futsal Championship (PGFC)
-                                                yang digelar di SOR Tri Dharma mulai 19 September hingga
-                                                1 Oktober 2022. Ada 32 tim futsal SMA/sederajat, dari
-                                                lima daerah yaitu Gresik, Surabaya, Sidoarjo, Lamongan
-                                                dan Mojokerto yang siap bertanding.
-                                            </p>
-                                        </div>
-                                        <div class="news-btn">
-                                            <a class="primary-btn" href="#">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="latest-news-nav">
-                                <div><img src="frontend/images/latest/news1.jpg" alt="" /></div>
-                                <div><img src="frontend/images/latest/news2.jpg" alt="" /></div>
-                                <div><img src="frontend/images/latest/news3.jpg" alt="" /></div>
+                                @foreach ($articles as $item)
+                                    <div><img src="{{ asset('storage/admin/articles/' . $item->img) }}"
+                                            alt="{{ $item->title }}" /></div>
+                                @endforeach
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -285,7 +241,8 @@
                                     <h4>final score</h4>
                                 </div>
                                 <div class="today-match-team">
-                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png" alt="" />
+                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png"
+                                        alt="" />
                                     <h4>SMAN 2 LAMONGAN</h4>
                                     <span>-</span>
                                 </div>
@@ -334,8 +291,8 @@
                                     </div>
                                 </div>
                                 <div class="view-all-result">
-                                    <a href="{{ route('pages.result') }}">View All <i
-                                            class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a href="{{ route('pages.result') }}">View All <i class="fa fa-angle-double-right"
+                                            aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -562,11 +519,11 @@
                     <h3 class="title-bg">Top players</h3>
                     <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
                         data-autoplay="true" data-autoplay-timeout="7000" data-smart-speed="2000" data-dots="false"
-                        data-nav="false" data-nav-speed="false" data-mobile-device="1"
-                        data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2"
-                        data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2"
-                        data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="3"
-                        data-md-device-nav="false" data-md-device-dots="false">
+                        data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false"
+                        data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false"
+                        data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false"
+                        data-ipad-device-dots2="false" data-md-device="3" data-md-device-nav="false"
+                        data-md-device-dots="false">
                         <div class="our-team">
                             <img src="frontend/images/team/top-player1.jpeg" alt="" />
                             <div class="person-details">
@@ -969,7 +926,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-1.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -983,7 +940,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-2.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -997,7 +954,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-3.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1011,7 +968,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-4.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1025,7 +982,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-5.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1039,7 +996,7 @@
                             <div class="bottom-icons">
                                 <ul>
                                     <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-6.jpg">
-                                        <i class="fa fa-power-off"></i></a></li>
+                                            <i class="fa fa-power-off"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1113,7 +1070,7 @@
         </div>
     </div>
     <!-- Testimonials Sections End Here-->
-    
+
 @endsection
 
 @push('prepend-style')
@@ -1148,27 +1105,27 @@
 @push('addon-script')
     <!-- all js here -->
     <!-- jquery latest version -->
-    <script src="{{ url('frontend/js/jquery.min.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.min.js') }}"></script>
     <!-- Menu js -->
-    <script src="{{ url('frontend/js/rsmenu-main.js')}}"></script>
+    <script src="{{ url('frontend/js/rsmenu-main.js') }}"></script>
     <!-- jquery-ui js -->
-    <script src="{{ url('frontend/js/jquery-ui.min.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery-ui.min.js') }}"></script>
     <!-- bootstrap js -->
-    <script src="{{ url('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url('frontend/js/bootstrap.min.js') }}"></script>
     <!-- meanmenu js -->
-    <script src="{{ url('frontend/js/jquery.meanmenu.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.meanmenu.js') }}"></script>
     <!-- wow js -->
-    <script src="{{ url('frontend/js/wow.min.js')}}"></script>
+    <script src="{{ url('frontend/js/wow.min.js') }}"></script>
     <!-- Slick js -->
-    <script src="{{ url('frontend/js/slick.min.js')}}"></script>
+    <script src="{{ url('frontend/js/slick.min.js') }}"></script>
     <!-- masonry js -->
-    <script src="{{ url('frontend/js/masonry.js')}}"></script>
+    <script src="{{ url('frontend/js/masonry.js') }}"></script>
     <!-- magnific-popup js -->
     <!-- owl.carousel js -->
-    <script src="{{ url('frontend/js/owl.carousel.min.js')}}"></script>
-    <script src="{{ url('frontend/js/time-circle.js')}}"></script>
+    <script src="{{ url('frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('frontend/js/time-circle.js') }}"></script>
     <!-- magnific-popup js -->
-    <script src="{{ url('frontend/js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.magnific-popup.js') }}"></script>
     <!-- main js -->
-    <script src="{{ url('frontend/js/main.js')}}"></script>
+    <script src="{{ url('frontend/js/main.js') }}"></script>
 @endpush
