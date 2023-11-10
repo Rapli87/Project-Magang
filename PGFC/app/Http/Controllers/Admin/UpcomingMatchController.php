@@ -37,11 +37,11 @@ class UpcomingMatchController extends Controller
     {
         $data = $request->all();
         $data['home_team_logo'] = $request->file('home_team_logo')->store(
-            'assets/home_team_logo',
+            'admin/upcoming_match/home_team_logo',
             'public'
         );
         $data['away_team_logo'] = $request->file('away_team_logo')->store(
-            'assets/away_team_logo',
+            'admin/upcoming_match/away_team_logo',
             'public'
         );
 
@@ -77,11 +77,11 @@ class UpcomingMatchController extends Controller
     {
         $data = $request->all();
         $data['home_team_logo'] = $request->file('home_team_logo')->store(
-            'assets/home_team_logo',
+            'admin/upcoming_match/home_team_logo',
             'public'
         );
         $data['away_team_logo'] = $request->file('away_team_logo')->store(
-            'assets/away_team_logo',
+            'admin/upcoming_match/away_team_logo',
             'public'
         );
 

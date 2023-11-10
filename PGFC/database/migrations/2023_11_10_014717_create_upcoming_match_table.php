@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('vanue'); // Tempat pertandingan
             $table->string('home_team_logo'); // Kolom untuk logo tim home
             $table->string('away_team_logo'); // Kolom untuk logo tim away
-            $table->text('description')->nullable(); // Deskripsi pertandingan (opsional)
+            // $table->text('description')->nullable(); // Deskripsi pertandingan (opsional)
             $table->softDeletes(); // Kolom hapus sementara (soft delete
             $table->timestamps(); // Kolom tanggal pembuatan dan pembaruan
         });

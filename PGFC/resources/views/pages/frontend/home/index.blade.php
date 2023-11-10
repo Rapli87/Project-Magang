@@ -6,73 +6,32 @@
     <!-- Slider Section Start Here -->
     <div class="slider-section4 slider-main">
         <div id="slider-five" class="owl-carousel">
-            <div class="item active">
-                <img src="frontend/images/full-slider/slide3.jpg" alt="Slider image">
-                <div class="dsc">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="slider-text text-center">
-                                    <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">
-                                        SMAN 1 GRESIK<span>VS</span>SMAN 2 LAMONGAN</h1>
-                                    <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
-                                        class="CountDownTimer" data-date="2023-08-22 15:00:00"></div>
-                                    <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
-                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
-                                            target="_blank">Book a Ticket</a>
+            @foreach ($upcomings as $upcoming)
+                <div class="item">
+                    <img src="frontend/images/full-slider/slide4.jpg" alt="Slider image">
+                    <div class="dsc">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="slider-text text-center">
+                                        <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">
+                                            {{ $upcoming->home_team }} <span>VS</span> {{ $upcoming->away_team }}</h1>
+                                        <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
+                                            class="CountDownTimer" data-date="{{ $upcoming->match_datetime }}">
+                                        </div>
+                                        <div class="btn-slider">
+                                            <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
+                                                data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
+                                                target="_blank">Book a Ticket
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <img src="frontend/images/full-slider/slide2.jpg" alt="Slider image">
-                <div class="dsc">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="slider-text text-center">
-                                    <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">SMAN 1
-                                        KEBOMAS<span>VS</span>SMAN 2 MOJOKERTO</h1>
-                                    <div data-animation-in="slideInRight" data-animation-out="animate-out fadeOut"
-                                        class="CountDownTimer" data-date="2023-08-22 16:00:00"></div>
-                                    <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
-                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
-                                            target="_blank">Book a Ticket</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="frontend/images/full-slider/slide4.jpg" alt="Slider image">
-                <div class="dsc">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="slider-text text-center">
-                                    <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">
-                                        SMK YPI DARUSSALAM 1 CERME<span>VS</span>SMAN 1 WRINGINANOM</h1>
-                                    <div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut"
-                                        class="CountDownTimer" data-date="2023-08-22 18:00:00"></div>
-                                    <div class="btn-slider">
-                                        <a href="https://www.loket.com/event/pgfc-2023" class="btn1"
-                                            data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown"
-                                            target="_blank">Book a Ticket</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- Slider Section end Here -->
@@ -80,96 +39,31 @@
     <!-- Upcoming Match Section Start Here-->
     <div class="upcoming-section">
         <div class="container">
-            <h2>Upcoming Match</h2>
+            <h2 style="color: #fed422">Upcoming Match</h2>
             <div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30"
                 data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false"
                 data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
                 data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1"
                 data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false"
                 data-md-device-dots="false">
-                <div class="item">
-                    <div class="col-md-4 col-sm-4 col-xs-12 first">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMAN 1 CERME.jpg" alt="">
-                        <h4>SMAN 1 CERME</h4>
+                @foreach ($upcomings as $upcoming)
+                    <div class="item">
+                        <div class="col-md-4 col-sm-4 col-xs-12 first">
+                            <img src="{{ asset('storage/' . $upcoming->home_team_logo) }}" alt="{{ $upcoming->home_team }}">
+                            <h4>{{ $upcoming->home_team }}</h4>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <span
+                                class="date">{{ \Carbon\Carbon::parse($upcoming->match_datetime)->setTimezone('Asia/Jakarta')->isoFormat('dddd, DD MMMM YYYY HH:mm [WIB]') }}</span>
+                            <span class="vs">VS</span>
+                            <span>{{ $upcoming->away_team }}</span>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12 last">
+                            <img src="{{ asset('storage/' . $upcoming->away_team_logo) }}" alt="{{ $upcoming->away_team }}">
+                            <h4>{{ $upcoming->away_team }}</h4>
+                        </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <span class="date">Selasa, 22 Agustus 2023 19:00 WIB</span>
-                        <span class="vs">VS</span>
-                        <span>GOR Tri Dharma PT Petrokimia Gresik</span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 last">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMA SEMEN GRESIK.jpg" alt="">
-                        <h4>SMA SEMEN GRESIK</h4>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="col-md-4 col-sm-4 col-xs-12 first">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMKN 5 SURABAYA.png" alt="">
-                        <h4>SMKN 5 SURABAYA</h4>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <span class="date">Rabu, 23 Agustus 2023 15:00 WIB</span>
-                        <span class="vs">VS</span>
-                        <span>GOR Tri Dharma PT Petrokimia Gresik</span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 last">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMK MANBAUL ULUM.png" alt="">
-                        <h4>SMK MANBAUL ULUM</h4>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="col-md-4 col-sm-4 col-xs-12 first">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMA MUHAMMADIYAH 8 CERME.png" alt="">
-                        <h4>SMA MUHAMMADIYAH 8 CERME</h4>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <span class="date">Rabu, 23 Agustus 2023 16:00 WIB</span>
-                        <span class="vs">VS</span>
-                        <span>GOR Tri Dharma PT Petrokimia Gresik</span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 last">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMA NU2 GRESIK.jpg" alt="">
-                        <h4>SMA NU2 GRESIK</h4>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="col-md-4 col-sm-4 col-xs-12 first">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMA NEGERI 1 KRIAN.png" alt="">
-                        <h4>SMA NEGERI 1 KRIAN</h4>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <span class="date">Rabu, 23 Agustus 2023 18:00 WIB</span>
-                        <span class="vs">VS</span>
-                        <span>GOR Tri Dharma PT Petrokimia Gresik</span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 last">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMKN 1 CERME.png" alt="">
-                        <h4>SMKN 1 CERME</h4>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="col-md-4 col-sm-4 col-xs-12 first">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMK YASMU MANYAR.png" alt="">
-                        <h4>SMK YASMU MANYAR</h4>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <span class="date">Rabu, 23 Agustus 2023 19:00 WIB</span>
-                        <span class="vs">VS</span>
-                        <span>GOR Tri Dharma PT Petrokimia Gresik</span>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 last">
-                        <img src="frontend/images/upcoming/LogoSekolah/SMA NU 1 GRESIK.jpg" alt="">
-                        <h4>SMA NU 1 GRESIK</h4>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -188,7 +82,7 @@
                                     <div>
                                         <div class="news-normal-block">
                                             <div class="news-img">
-                                                <a href="{{ url('blog/p/'.$item->slug) }}">
+                                                <a href="{{ url('blog/p/' . $item->slug) }}">
                                                     <img src="{{ asset('storage/admin/articles/' . $item->img) }}"
                                                         alt="{{ $item->title }}" />
                                                 </a>
@@ -241,8 +135,7 @@
                                     <h4>final score</h4>
                                 </div>
                                 <div class="today-match-team">
-                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png"
-                                        alt="" />
+                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png" alt="" />
                                     <h4>SMAN 2 LAMONGAN</h4>
                                     <span>-</span>
                                 </div>
@@ -1008,7 +901,7 @@
     <!-- Gallery Section End Here-->
 
     <!-- Testimonials Sections Start Here-->
-        @include('includes.frontend.testimonials')
+    @include('includes.frontend.testimonials')
     <!-- Testimonials Sections End Here-->
 
 @endsection

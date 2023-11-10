@@ -102,7 +102,7 @@
                                         </div>
                                     @enderror
                                     <div class="mb-3">
-                                        <label for="away_team_logo" class="form-label">Logo Home</label>
+                                        <label for="away_team_logo" class="form-label">Logo Away</label>
                                         <input type="file"
                                             class="form-control @error('away_team_logo') is-invalid @enderror"
                                             name="away_team_logo">
@@ -112,10 +112,10 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
-                                    </div>
+                                    </div> --}}
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>

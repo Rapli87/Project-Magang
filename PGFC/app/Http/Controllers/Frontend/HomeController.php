@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Testimonial;
+use App\Models\UpcomingMatch;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,9 +17,10 @@ class HomeController extends Controller
     {
         // $newsItems = Article::take(3)->get();
         $articles = Article::whereStatus(1)->take(3)->latest()->get();
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::take(5)->latest()->get();
+        $upcomings = UpcomingMatch::take(4)->orderBy('match_datetime', 'desc')->get();
 
-        return view('pages.frontend.home.index', compact('articles', 'testimonials'));
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings'));
     }
 
     public function blog()
