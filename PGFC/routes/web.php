@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\LatestVideoController;
+use App\Http\Controllers\Admin\SubLatestVideoController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ArticleController as FrontendArticleController;
 use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryController;
@@ -99,6 +101,8 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/articles', ArticleController::class)-> middleware('UserAccess:1');
     Route::resource('admin/categories', CategoryController::class) -> middleware('UserAccess:1');
     Route::resource('admin/testimonials', TestimonialController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/latest-videos', LatestVideoController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/sublatest-videos', SubLatestVideoController::class)-> middleware('UserAccess:1');
 
     //user admin
     Route::resource('admin/users', UserController::class)-> middleware('UserAccess:1');

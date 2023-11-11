@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\LatestVideo;
+use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
 use App\Models\UpcomingMatch;
 use Illuminate\Http\Request;
@@ -19,8 +21,10 @@ class HomeController extends Controller
         $articles = Article::whereStatus(1)->take(3)->latest()->get();
         $testimonials = Testimonial::take(5)->latest()->get();
         $upcomings = UpcomingMatch::take(4)->orderBy('match_datetime', 'desc')->get();
+        $latestVideos = LatestVideo::take(1)->latest()->get();
+        $sublatestVideos = SubLatestVideo::take(3)->orderBy('date', 'asc')->get();
 
-        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings'));
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos'));
     }
 
     public function blog()

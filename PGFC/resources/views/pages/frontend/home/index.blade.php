@@ -334,71 +334,42 @@
         <div class="container">
             <h3 class="title-bg">Latest video</h3>
             <div class="row">
-                <div class="col-md-8">
-                    <div class="video-area mmb-40">
-                        <img src="frontend/images/latest-video/video-pgfc.jpg" alt="Video" />
-                        <div class="videos-icon">
-                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=05eusVamYiY">
-                                <i class="fa fa-play" aria-hidden="true"></i>
-                            </a>
+                @foreach ($latestVideos as $latestVideo)
+                    <div class="col-md-8">
+                        <div class="video-area mmb-40">
+                            <img src="{{ asset($latestVideo->thumbnail) }}" alt="Video Thumbnail" width="1280" height="720"/>
+                            <div class="videos-icon">
+                                <a class="popup-youtube" href="{{ $latestVideo->url }}">
+                                    <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 latest-news">
-                    <div class="inner-news small-news">
-                        <div class="news-img">
-                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest1.png"
-                                    alt="News" /></a>
-                        </div>
-                        <div class="news-text">
-                            <h5><a href="{{ route('pages.blog') }}">Technical Meeting
-                                    Petrokimia Gresik Futsal
-                                    Championship (PGFC 2023)</a></h5>
-                            <span class="date">Senin, 14 Agustus 2023</span>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="inner-news small-news">
-                        <div class="news-img">
-                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest2.png"
-                                    alt="News" /></a>
-                        </div>
-                        <div class="news-text">
-                            <h5><a href="{{ route('pages.blog') }}">SMAN 1 GRESIK VS SMAN 2
-                                    LAMONGAN</a></h5>
-                            <span class="date">Selasa, 22 Agustus 2023</span>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
+                @endforeach
+                @foreach ($sublatestVideos as $sublatestVideo)
+                    <div class="col-md-4 latest-news">
+                        <div class="inner-news small-news">
+                            <div class="news-img">
+                                <a href="{{ $sublatestVideo->url }}" target="_blank">
+                                    <img src="{{ asset($sublatestVideo->image) }}" alt="News" width="200" height="113"/>
+                                </a>
+                            </div>
+                            <div class="news-text">
+                                <h5><a href="{{ $sublatestVideo->url }}" target="_blank">
+                                        {{ $sublatestVideo->title }}
+                                    </a>
+                                </h5>
+                                <span
+                                    class="date">{{ \Carbon\Carbon::parse($sublatestVideo->date)->isoFormat('dddd, DD MMMM YYYY') }}</span>
+                                <ul class="rating">
+                                    @for ($i = 0; $i < $sublatestVideo->rate; $i++)
+                                        <li><i class="fa fa-star"></i></li>
+                                    @endfor
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="inner-news small-news">
-                        <div class="news-img">
-                            <a href="{{ route('pages.blog') }}"><img src="frontend/images/latest-video/latest3.png"
-                                    alt="News" /></a>
-                        </div>
-                        <div class="news-text">
-                            <h5><a href="{{ route('pages.blog') }}">SMAN 1 KEBOMAS VS SMAN 2
-                                    MOJOKERTO</a>
-                            </h5>
-                            <span class="date">Selasa, 22 Agustus 2023</span>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

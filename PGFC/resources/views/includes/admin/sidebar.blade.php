@@ -118,6 +118,12 @@
                         <li>
                             <a href="{{ url('admin/categories') }}">Categories</a>
                         </li>
+                        <li>
+                            <a href="{{ url('admin/latest-videos') }}">Latest Videos</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/sublatest-videos') }}">Sub Latest Videos</a>
+                        </li>
                     </ul>
                 </div>
             </li>
