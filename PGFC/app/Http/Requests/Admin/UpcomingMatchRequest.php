@@ -26,9 +26,11 @@ class UpcomingMatchRequest extends FormRequest
             'away_team' => 'required|max:255',
             'match_datetime' => 'required|date',
             'vanue' => 'required|max:255',
-            'home_team_logo' => 'required|max:255',
-            'away_team_logo' => 'required|max:255',
-            'description' => 'nullable|max:255',
+            // 'home_team_logo' => 'required|max:255',
+            // 'away_team_logo' => 'required|max:255',
+            'home_team_logo' => 'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048', // Hanya menerima file gambar dengan ekstensi tertentu (JPEG, PNG, JPG, GIF) dan ukuran maksimum 2MB.
+            'away_team_logo' => 'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048', // Hanya menerima file gambar dengan ekstensi tertentu (JPEG, PNG, JPG, GIF) dan ukuran maksimum 2MB.
+            // 'description' => 'nullable|max:255',
         ];
     }
 }

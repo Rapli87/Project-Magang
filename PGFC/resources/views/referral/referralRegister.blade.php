@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register | PGFC</title>
+    <title>Referral Register | PGFC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
     <meta content="PGFC" name="PT Petrokimia Gresik" />
@@ -136,8 +136,10 @@
                 <!-- end row -->
             </div>
             <div class="row">
-                {{-- <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Already have account? <a href="{{ route('second', [ 'auth' , 'login']) }}" class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a></p>
+                <div class="col-12 text-center">
+                    <p class="text-light-emphasis">Already have account? <a href="{{ route('login') }}"
+                            class="text-light fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
+                    </p>
                 </div> <!-- end col --> --}}
             </div>
             <!-- end row -->
@@ -147,7 +149,7 @@
     <!-- end page -->
 
     <footer class="footer footer-alt fw-medium">
-        <span class="text-dark">
+        <span class="text-light">
             <script>
                 document.write(new Date().getFullYear())
             </script> © PGFC - by Petrokimia Gresik

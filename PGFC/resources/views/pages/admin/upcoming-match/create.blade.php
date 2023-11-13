@@ -1,81 +1,134 @@
 @extends('layouts.admin')
 
-@section('content')
-    <div class="app-main flex-column flex-row-fluid " id="kt_app_main">
-        <div class="d-flex flex-column flex-column-fluid">
-            <div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
-                <div id="kt_app_toolbar_container" class="app-container  container-fluid d-flex flex-stack ">
-                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
-                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            Add Upcoming Match
-                        </h1>
+@section('title', 'Create Pertandingan Selanjutnya | PGFC Admin')
 
-                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-                            <li class="breadcrumb-item text-muted">
-                                <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary">
-                                    Home </a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                            </li>
-                            <li class="breadcrumb-item text-muted">
-                                Upcoming Match </li>
-                        </ul>
+@section('content')
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tambah Pertandingan
+                                            Selanjutnya</a>
+                                    </li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Tambah Pertandingan Selanjutnya </h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                <!-- end page title -->
 
-            <div class="card shadow">
-                <div class="card body">
-                    <form action="{{ route('upcoming-match.store') }}" method="POST">
-                        @csrf
-                        <div class="form group">
-                            <label for="home_team">Home Team</label>
-                            <input type="text" class="form-control" name="home_team" placeholder="Home Team"
-                                value="{{ old('home_team') }}">
-                        </div>
-                        <div class="form group">
-                            <label for="away_team">Away Team</label>
-                            <input type="text" class="form-control" name="away_team" placeholder="Away Team"
-                                value="{{ old('away_team') }}">
-                        </div>
-                        <div class="form group">
-                            <label for="match_datetime">Date Time</label>
-                            <input type="date" class="form-control" name="match_datetime" placeholder="Date Time"
-                                value="{{ old('match_datetime') }}">
-                        </div>
-                        <div class="form group">
-                            <label for="vanue">Vanue</label>
-                            <input type="text" class="form-control" name="vanue" placeholder="Vanue"
-                                value="{{ old('vanue') }}">
-                        </div>
-                        <div class="form group">
-                            <label for="home_team_logo">Home Logo</label>
-                            <input type="text" class="form-control" name="home_team_logo" placeholder="Home Logo"
-                                value="{{ old('home_team_logo') }}">
-                        </div>
-                        <div class="form group">
-                            <label for="away_team_logo">Away Logo</label>
-                            <input type="text" class="form-control" name="away_team_logo" placeholder="Away Logo"
-                                value="{{ old('away_team_logo') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea name="description" rows="10" class="d-block w-100 form-control">{{ old('description') }}</textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                    </form>
+                {{-- Konten --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form action="{{ route('upcoming-match.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="home_team" class="form-label">Home</label>
+                                        <input type="text" class="form-control @error('home_team') is-invalid @enderror"
+                                            name="home_team" placeholder="Home" value="{{ old('home_team') }}">
+                                        @error('home_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="away_team" class="form-label">Away</label>
+                                        <input type="text" class="form-control @error('away_team') is-invalid @enderror"
+                                            name="away_team" placeholder="Away" value="{{ old('away_team') }}">
+                                        @error('away_team')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="vanue" class="form-label">Venue</label>
+                                        <input type="text" class="form-control @error('vanue') is-invalid @enderror"
+                                            name="vanue" placeholder="Venue" value="{{ old('vanue') }}">
+                                        @error('vanue')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="match_datetime" class="form-label">Match Date Time</label>
+                                        <input type="datetime-local"
+                                            class="form-control @error('match_datetime') is-invalid @enderror"
+                                            name="match_datetime" placeholder="Date" value="{{ old('match_datetime') }}">
+                                        @error('match_datetime')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="home_team_logo" class="form-label">Logo Home</label>
+                                        <input type="file"
+                                            class="form-control @error('home_team_logo') is-invalid @enderror"
+                                            name="home_team_logo">
+                                    </div>
+                                    @error('home_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    <div class="mb-3">
+                                        <label for="away_team_logo" class="form-label">Logo Away</label>
+                                        <input type="file"
+                                            class="form-control @error('away_team_logo') is-invalid @enderror"
+                                            name="away_team_logo">
+                                    </div>
+                                    @error('away_team_logo')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    {{-- <div class="mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
+                                    </div> --}}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                {{-- End Konten --}}
             </div>
+            <!-- container -->
         </div>
-    </div>
-@endsection
+        <!-- content -->
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    @endsection
+    

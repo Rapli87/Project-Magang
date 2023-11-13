@@ -1,13 +1,16 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="{{ str_replace('_','-', app()->getLocale()) }}">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title')</title>
     <meta name="description" content="">
+    <meta name="author" content="Petrokimia Gresik">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    @stack('meta-seo')
+    <title>@yield('title')</title>
+    
     @stack('prepend-style')
     {{-- @include('includes.style') --}}
     @stack('addon-style')
@@ -15,15 +18,15 @@
 </head>
 
 <body class="home-two">
-    @include('includes.navbar')
+    @include('includes.frontend.navbar')
 
     @yield('content')
 
     <!-- Sponsorhip-->
-    @include('includes.sponsorship')
+    @include('includes.frontend.sponsorship')
 
     {{-- footer --}}
-    @include('includes.footer')
+    @include('includes.frontend.footer')
 
     <!-- Search Modal Start -->
     <div aria-hidden="true" class="modal fade search-modal" role="dialog" tabindex="-1">

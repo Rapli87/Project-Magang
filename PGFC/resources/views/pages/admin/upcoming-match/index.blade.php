@@ -1,5 +1,22 @@
 @extends('layouts.admin')
 
+@section('title', 'Pertandingan Selanjutnya | PGFC Admin')
+@push('addon-style')
+    <!-- Datatables css -->
+    <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+@endpush
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Start Page Content here -->
@@ -29,6 +46,12 @@
                 <!-- end page title -->
 
                 {{-- Konten --}}
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -42,51 +65,74 @@
                                 </p>
                             </div>
                             <!-- end card header--> --}}
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <table id="fixed-columns-datatable"
+                                        class="table table-striped nowrap row-border order-column w-100">
+                                        <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary mb-2">
+                                            <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
+                                        </a>
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Home</th>
+                                                <th>Away</th>
+                                                <th>Match Date Time</th>
+                                                <th>Vanue</th>
+                                                <th>Logo Home</th>
+                                                <th>Logo Away</th>
+                                                {{-- <th>Description</th> --}}
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
 
-                            <div class="card-body">
-                                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
-                                    <a href="{{ route('upcoming-match.create') }}" class="btn btn-primary" style="margin-bottom: 10px;">
-                                        <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
-                                    </a>
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Home</th>
-                                            <th>Away</th>
-                                            <th>Match Date Time</th>
-                                            <th>vanue</th>
-                                            <th>Logo Home</th>
-                                            <th>Logo Away</th>
-                                            <th>Description</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
+                                        <tbody>
+                                            @forelse ($items as $item)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $item->home_team }}</td>
+                                                    <td>{{ $item->away_team }}</td>
+                                                    <td>{{ $item->match_datetime }}</td>
+                                                    <td>{{ $item->vanue }}</td>
+                                                    <td>
+                                                        <img src="{{ url('storage/' . $item->home_team_logo) }}"
+                                                            alt=""
+                                                            style="width: 150px; height: 150px; object-fit: cover;">
+                                                    </td>
+                                                    <td>
+                                                        <img src="{{ url('storage/' . $item->away_team_logo) }}"
+                                                            alt=""
+                                                            style="width: 150px; height: 150px; object-fit: cover;">
+                                                    </td>
+                                                    {{-- <td>{{ $item->description }}</td> --}}
+                                                    <td>
+                                                        <a href="{{ route('upcoming-match.edit', $item->id) }}"
+                                                            class="btn btn-warning">
+                                                            <i class="ri-pencil-line text-light"></i>
+                                                        </a>
+                                                        <form action="{{ route('upcoming-match.destroy', $item->id) }}"
+                                                            method="POST" class="d-inline">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button class="btn btn-danger"
+                                                                onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                <i class="ri-delete-bin-line text-light"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            {{-- @empty
 
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>SMA NU 1 GRESIK</td>
-                                            <td>SMK YASMU MANYAR</td>
-                                            <td>Rabu, 23 Agustus 2023 19:00 WIB</td>
-                                            <td>Stadion Gelora Joko Samudro</td>
-                                            <td>
-                                                <img src="{{ url('frontend/images/upcoming/LogoSekolah/SMA NU 1 GRESIK.jpg') }}" alt="" width="100px">
-                                            </td>
-                                            <td>
-                                                <img src="{{ url('frontend/images/upcoming/LogoSekolah/SMK YASMU MANYAR.png') }}" alt="" width="100px">
-                                            </td>
-                                            <td>hbksbcsckbkbvdvkd</td>
-                                            <td>
-                                                <a href="" class="btn btn-warning">
-                                                    <i class="ri-pencil-line text-light"></i>
-                                                </a>
-                                                <a href="" class="btn btn-danger">
-                                                    <i class="ri-delete-bin-line text-light"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <tr>
+                                                    <td colspan="9" class="text-center">
+                                                        Data Kosong
+                                                    </td>
+                                                </tr>
+                                            @endforelse --}}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div> <!-- end card body-->
                         </div> <!-- end card -->
                     </div><!-- end col-->
@@ -100,3 +146,24 @@
         <!-- End Page content -->
         <!-- ============================================================== -->
     @endsection
+    @push('addon-script')
+    <!-- Datatables js -->
+    <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}">
+    </script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}">
+    </script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ url('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+
+    <!-- Datatable Demo App js -->
+    <script src="{{ url('backend/assets/js/pages/datatable.init.js') }}"></script>
+    @endpush

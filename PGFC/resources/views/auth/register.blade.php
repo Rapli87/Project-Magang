@@ -138,8 +138,8 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="text-light-emphasis">Already have account? <a href="{{ route('login') }}"
-                        class="text-light fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
-                </p>
+                            class="text-light fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
+                    </p>
                 </div> <!-- end col -->
             </div>
             <!-- end row -->

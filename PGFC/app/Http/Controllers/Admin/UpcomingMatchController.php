@@ -36,11 +36,18 @@ class UpcomingMatchController extends Controller
     public function store(UpcomingMatchRequest $request)
     {
         $data = $request->all();
-        // $data['slug'] = Str::slug($request->title);
+        $data['home_team_logo'] = $request->file('home_team_logo')->store(
+            'admin/upcoming_match/home_team_logo',
+            'public'
+        );
+        $data['away_team_logo'] = $request->file('away_team_logo')->store(
+            'admin/upcoming_match/away_team_logo',
+            'public'
+        );
 
         UpcomingMatch::create($data);
 
-        return redirect()->route('upcoming-match.index');
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully created');
     }
 
     /**
@@ -56,15 +63,32 @@ class UpcomingMatchController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $item = UpcomingMatch::findOrFail($id);
+
+        return view('pages.admin.upcoming-match.edit', [
+            'item' => $item
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpcomingMatchRequest $request, string $id)
     {
-        //
+        $data = $request->all();
+        $data['home_team_logo'] = $request->file('home_team_logo')->store(
+            'admin/upcoming_match/home_team_logo',
+            'public'
+        );
+        $data['away_team_logo'] = $request->file('away_team_logo')->store(
+            'admin/upcoming_match/away_team_logo',
+            'public'
+        );
+
+        $item = UpcomingMatch::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully updated');
     }
 
     /**
@@ -72,6 +96,9 @@ class UpcomingMatchController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $item = UpcomingMatch::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('upcoming-match.index')->with('success', 'Upcoming Match successfully deleted');
     }
 }

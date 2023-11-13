@@ -3,28 +3,55 @@
      <div class="topbar container-fluid">
          <div class="d-flex align-items-center gap-1">
 
+             @if (auth()->user()->role == 1)
              <!-- Topbar Brand Logo -->
              <div class="logo-topbar">
-                 <!-- Logo light -->
-                 <a href="{{ route('dashboard') }}" class="logo-light">
-                     <span class="logo-lg">
-                         <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
-                     </span>
-                     <span class="logo-sm">
-                         <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
-                     </span>
-                 </a>
+                <!-- Logo light -->
+                <a href="{{ route('dashboard-admin') }}" class="logo-light">
+                    <span class="logo-lg">
+                        <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
+                    </span>
+                </a>
 
-                 <!-- Logo Dark -->
-                 <a href="{{ route('dashboard') }}" class="logo-dark">
-                     <span class="logo-lg">
-                         <img src="{{ url('backend/assets/images/logo-dark.png') }}" alt="dark logo">
-                     </span>
-                     <span class="logo-sm">
-                         <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
-                     </span>
-                 </a>
-             </div>
+                <!-- Logo Dark -->
+                <a href="{{ route('dashboard-admin') }}" class="logo-dark">
+                    <span class="logo-lg">
+                        <img src="{{ url('backend/assets/images/logo-dark.png') }}" alt="dark logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
+                    </span>
+                </a>
+            </div>     
+             @endif
+
+             @if (auth()->user()->role == 2)
+             <!-- Topbar Brand Logo -->
+             <div class="logo-topbar">
+                <!-- Logo light -->
+                <a href="{{ route('dashboard-user') }}" class="logo-light">
+                    <span class="logo-lg">
+                        <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
+                    </span>
+                </a>
+
+                <!-- Logo Dark -->
+                <a href="{{ route('dashboard-user') }}" class="logo-dark">
+                    <span class="logo-lg">
+                        <img src="{{ url('backend/assets/images/logo-dark.png') }}" alt="dark logo">
+                    </span>
+                    <span class="logo-sm">
+                        <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
+                    </span>
+                </a>
+            </div>     
+             @endif
 
              <!-- Sidebar Menu Toggle Button -->
              <button class="button-toggle-menu">
