@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         // $newsItems = Article::take(3)->get();
-        $articles = Article::whereStatus(1)->take(3)->latest()->get();
+        $articles = Article::whereStatus(1)->take(3)->orderBy('publish_date', 'desc')->get();
         $testimonials = Testimonial::take(5)->latest()->get();
         $upcomings = UpcomingMatch::take(4)->orderBy('match_datetime', 'desc')->get();
         $latestVideos = LatestVideo::take(1)->latest()->get();

@@ -48,7 +48,6 @@
                 <div class="collapse" id="sidebarPages">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="#">Data Sekolah</a>
                             <a href="{{route('Data-Sekolah.index')}}">Data Sekolah</a>
                         </li>
                         <li>
@@ -83,7 +82,7 @@
                 <div class="collapse" id="sidebarPagesAuth">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{ url('admin/users') }}">Auth User</a>
+                            {{-- <a href="{{ url('admin/users') }}">Auth User</a> --}}
                             <a href="{{route('Auth-User.index')}}">Auth User</a>
                         </li>
                     </ul>
@@ -99,18 +98,12 @@
                 </a>
                 <div class="collapse" id="sidebarPagesCMS">
                     <ul class="side-nav-second-level">
-                        <li>
+                        {{-- <li>
                             <a href="auth-login.html">Slider</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
-                        </li>
-                        <li>
+                        </li> --}}
+                        {{-- <li>
                             <a href="auth-login.html">Gambar Skema</a>
-                        </li>
-                        <li>
-                            <a href="auth-login.html">Aturan</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ url('admin/dashboard-blog') }}">Dashboard Blog</a>
                         </li>
@@ -121,10 +114,16 @@
                             <a href="{{ url('admin/categories') }}">Categories</a>
                         </li>
                         <li>
+                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
+                        </li>
+                        <li>
                             <a href="{{ url('admin/latest-videos') }}">Latest Videos</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/sublatest-videos') }}">Sub Latest Videos</a>
+                        </li>
+                        <li>
+                            <a href="auth-login.html">Aturan</a>
                         </li>
                     </ul>
                 </div>
