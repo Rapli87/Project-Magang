@@ -18,4 +18,6 @@ class Network extends Model
         'user_id',
         'parent_user_id',
     ];
+
+
 }

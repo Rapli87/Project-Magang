@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('networks', function (Blueprint $table) {
+        Schema::create('data_supporter_guru', function (Blueprint $table) {
             $table->id();
-            $table->string('referral_code', 50);
-            $table->integer('user_id');
-            $table->integer('parent_user_id');
-            $table->softDeletes();
+            $table->integer('data_supporterguru_id');
+            $table->string('nama'); 
+            $table->string('hp');
+            $table->string('alamat');
+            $table->string('foto');
+            $table->string('ktp');
             $table->timestamps();
         });
     }
@@ -26,9 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::create('networks', function (Blueprint $table) {
-            // ...
-        });
-        
+        Schema::dropIfExists('data_supporter_guru');
     }
 };

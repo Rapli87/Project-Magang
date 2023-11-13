@@ -1,25 +1,69 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use App\Models\User;
+use App\Http\Controllers\Controller;
 use App\Models\Network;
-
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-
-class UserController extends Controller
+class AuthUserController extends Controller
 {
-    //
-    public function loadRegister()
+    public function index()
     {
-        return view('auth.register');
+
+        $Datauser = User::all();
+        return view('pages.admin.Auth-User.index',['Datauser'=> $Datauser]);
+    }
+
+    public function show($id){
+        $data = User::find($id); // Assuming User is your model
+
+        if (!$data) {
+            abort(404);
+        }
+        return view('Pages.admin.Auth-User.show', ['data' => $data]);
+
+    }
+
+    public function update(Request $request, $id){
+        $data = User::find($id);
+        if (!$data){
+            abort(404);
+        }
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'referral_code' => 'nullable|string|max:255',
+            'password' => 'nullable|string|min:6',
+        ]);
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->referral_code = $request->input('referral_code');
+        if ($request->has('password')) {
+            $data->password = bcrypt($request->input('password'));
+        }
+
+        $data->save();
+    
+        return redirect()->route('Auth-User.show', ['id' => $data->id])->with('success', 'User updated successfully.');
+    }
+
+    public function delete($id)
+    {
+        $Datauser = User::find($id);
+
+        if (!$Datauser) {
+            return response()->json('Datauser')->with(['error' => 'Data Sekolah tidak ditemukan']);
+        }
+        $Datauser->delete();
+        return redirect()->route('Auth-User.index')->with(['success' => 'Data Sekolah berhasil dihapus']);
     }
 
     public function registered(Request $request)
@@ -111,7 +155,7 @@ class UserController extends Controller
 
             if(count($userData) >0){
 
-                return view('referral.referralRegister', ['referral'=>$referral]);
+                return view('referral.referralRegister', compact('referral'));
 
             }else{
                 return view('errors.404');
@@ -181,3 +225,4 @@ class UserController extends Controller
         return view ('auth.logout');
     }
 }
+

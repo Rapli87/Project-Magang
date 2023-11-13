@@ -1,11 +1,20 @@
 <?php
 
+use App\Http\Controllers\Admin\DetailBaganController;
+use App\Http\Controllers\Admin\DetailJadwalController;
+use App\Http\Controllers\Admin\GrubController;
+use App\Http\Controllers\Admin\JadwalController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DataSekolahController;
 use App\Http\Controllers\Admin\UpcomingMatchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\AuthUserController;
+use App\Http\Controllers\Admin\BaganChampionshipController;
+use App\Http\Controllers\Admin\DetailPemainController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,5 +108,43 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::delete('admin/upcoming-match/{id}', [UpcomingMatchController::class, 'destroy'])->name('upcoming-match.destroy');
 
     Route::post('admin/upcoming-match', [UpcomingMatchController::class, 'store'])->name('upcoming-match.store');
+
+    
+    Route::get('admin/Data-Sekolah', [DataSekolahController::class, 'index'])->name('Data-Sekolah.index');
+
+    Route::get('admin/Data-Sekolah/delete/{id}', [DataSekolahController::class, 'delete'])->name('Data-Sekolah.delete');
+    Route::get('admin/Data-Sekolah/show/{id}', [DataSekolahController::class, 'show'])->name('Data-Sekolah.show');
+    Route::get('admin/Data-Sekolah/CetakDataSekolah', [DataSekolahController::class,'cetakdatasekolah'])->name('Data-Sekolah.CetakDataSekolah');
+
+
+    Route::get('admin/Data-Sekolah/Showpemain/{id}', [DetailPemainController::class, 'showdetailpemain'])->name('Data-Sekolah.Showpemain');
+
+
+      
+    Route::get('admin/Bagan-Championship/index', [BaganChampionshipController::class, 'index'])->name('Bagan-Championship.index');
+    Route::get('admin/Bagan-Championship/show', [BaganChampionshipController::class, 'show'])->name('Bagan-Championship.show');
+
+    Route::get('admin/Jadwal', [JadwalController::class, 'index'])->name('Jadwal.index');
+    Route::get('admin/Jadwal/show', [DetailJadwalController::class, 'show'])->name('Jadwal.show');
+
+
+
+
+        
+    Route::get('admin/Group-klasmen', [GrubController::class, 'index'])->name('Group-klasmen.index');
+
+
+
+    Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index');
+    Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete');
+    Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->name('Auth-User.show');
+    Route::put('admin/Auth-User/update/{id}', [AuthUserController::class, 'update'])->name('Auth-User.update');
+    
+    // Route::post('/user-register', [AuthUserController::class, 'registered'])->name('registered');
+
+    // Route::get('/referral-register',[AuthUserController::class, 'loadReferralRegister']);
+    // Route::get('/email-verification/{token}',[AuthUserController::class, 'emailVerification']);
+
+  
 
 });
