@@ -15,6 +15,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $table = 'users';
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -25,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'username',
         'email',
         'password',
+        'parent_user_id',
         'referral_code',
     ];
 

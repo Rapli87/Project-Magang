@@ -49,9 +49,10 @@
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="#">Data Sekolah</a>
+                            <a href="{{route('Data-Sekolah.index')}}">Data Sekolah</a>
                         </li>
                         <li>
-                            <a href="pages-contact-list.html">Group Klasmen</a>
+                            <a href="{{route('Group-klasmen.index')}}">Group Klasmen</a>
                         </li>
                         <li>
                             <a href="pages-profile.html">Hasil Pertandingan</a>
@@ -63,10 +64,10 @@
                             <a href="pages-invoice.html">Statistik</a>
                         </li>
                         <li>
-                            <a href="pages-faq.html">Bagan Championship</a>
+                            <a href="{{route('Bagan-Championship.index')}}">Bagan Championship</a>
                         </li>
                         <li>
-                            <a href="pages-pricing.html">Bagan 16 Besar</a>
+                            <a href="{{route('Jadwal.index')}}">Jadwal</a>
                         </li>
                     </ul>
                 </div>
@@ -83,6 +84,7 @@
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{ url('admin/users') }}">Auth User</a>
+                            <a href="{{route('Auth-User.index')}}">Auth User</a>
                         </li>
                     </ul>
                 </div>
